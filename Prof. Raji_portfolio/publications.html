@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Dr. P. Rajalakshmi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d7a;
+            --primary-light: #e4e8ed;
+            --secondary: #6c757d;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --dark-gray: #495057;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--light) 0%, #f0f4f8 100%);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 90vw;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            min-height: 100px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 44px 0;
+            min-height: 100px;
+        }
+        
+        .logo, .logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-family: 'Playfair Display', serif;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            padding: 60px 0 80px 0;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 110px;
+        }
+        
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0 60px 0;
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tab-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 15px 40px;
+            cursor: pointer;
+            transition: var(--transition);
+            outline: none;
+            backdrop-filter: blur(10px);
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--white);
+            color: var(--primary-dark);
+            border-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .tab-btn i {
+            margin-right: 8px;
+        }
+        
+        .content-wrapper {
+            padding: 0 20px;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.7s;
+            padding-bottom: 80px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .pub-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(580px, 1fr));
+            gap: 25px;
+            max-width: none;
+            margin: 0;
+        }
+        
+        .pub-item {
+            background: var(--white);
+            border-left: 6px solid var(--primary);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            padding: 24px 28px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pub-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(0, 86, 179, 0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .pub-item:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-6px) scale(1.01);
+            border-left-width: 8px;
+        }
+        
+        .pub-item:hover::before {
+            opacity: 1;
+        }
+        
+        .pub-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.18rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pub-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .pub-title a:hover {
+            color: var(--primary);
+        }
+        
+        .pub-authors {
+            color: var(--primary);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pub-meta {
+            color: var(--gray);
+            font-size: 0.95rem;
+            font-style: italic;
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pub-doi {
+            display: inline-block;
+            margin-top: 8px;
+            color: var(--accent);
+            font-size: 0.9rem;
+            word-break: break-all;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stats-bar {
+            background: var(--white);
+            padding: 20px 0;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(.4,2,.6,1);
+        }
+        
+        .scroll-animation.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1600px) {
+            .pub-list {
+                grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 30px;
+            }
+            .pub-list {
+                grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            .content-wrapper {
+                padding: 0 10px;
+            }
+            .section-title {
+                font-size: 2.8rem;
+            }
+            .tab-btn {
+                font-size: 1rem;
+                padding: 12px 24px;
+            }
+            .pub-list {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .pub-item {
+                padding: 20px 22px;
+            }
+            .stats-container {
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .tabs {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            .tab-btn {
+                width: 200px;
+            }
+            .stats-container {
+                gap: 30px;
+            }
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin-left: auto;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav class="container">
+            <a href="index.html" class="logo">Dr. <span>Rajalakshmi</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="sponsored_projects.html">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="people.html">People</a></li>
+                <li><a href="index.html#dataset">Dataset</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="index.html#social">Connect</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="header-section">
+        <div class="container">
+            <h1 class="section-title scroll-animation">Publications</h1>
+            <p class="section-subtitle scroll-animation">Research Publications & Conference Papers</p>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="journals"><i class="fas fa-book"></i> Journal Publications</button>
+                <button class="tab-btn" data-tab="conferences"><i class="fas fa-chalkboard-teacher"></i> Conference Papers</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item scroll-animation">
+                    <span class="stat-number" id="journal-count">64</span>
+                    <span class="stat-label">Journal Papers</span>
+                </div>
+                <div class="stat-item scroll-animation">
+                    <span class="stat-number">IEEE</span>
+                    <span class="stat-label">Primary Publisher</span>
+                </div>
+                <div class="stat-item scroll-animation">
+                    <span class="stat-number">2025</span>
+                    <span class="stat-label">Latest Publications</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="content-wrapper">
+        <div class="container">
+            <div id="journals" class="tab-content active">
+                <div class="pub-list">
+                    <!-- Journal Publications -->
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/LGRS.2025.3582085" target="_blank">Improved Panicle Counting with Density Aware Sampling and Enhanced Matching</a></div>
+                        <div class="pub-authors">N. Tejasri, T. Li, W. Guo, M. Balram, U. B. Desai, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Geoscience and Remote Sensing Letters, DOI:10.1109/LGRS.2025.3582085</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/JESTIE.2025.3572802" target="_blank">System For Object Georeferencing, Speed and Heading Detection using LiDAR-INS/GNSS Mounted on a Mobile Vehicle</a></div>
+                        <div class="pub-authors">Bhaskar Anand, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Journal of Emerging and Selected Topics in Industrial Electronics, DOI:10.1109/JESTIE.2025.3572802</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/LGRS.2025.3567863" target="_blank">TDMBPLD: A Dataset Focusing on Marker Scene for UAV Landing</a></div>
+                        <div class="pub-authors">N. T. Sanjukumar, A. V. V. Meghashyam Bhuvanesh, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Geoscience and Remote Sensing Letters, DOI:10.1109/LGRS.2025.3567863</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/LGRS.2024.3431644" target="_blank">UC-HSI: UAV-Based Crop Hyperspectral Imaging Datasets and Machine Learning Benchmark Results</a></div>
+                        <div class="pub-authors">A. U. G. Sankararao, S. Choudhary, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Geoscience and Remote Sensing Letters, vol. 21, pp. 1-5, 2024, Art no. 5508005. (IF: 4.0), DOI:10.1109/LGRS.2024.3431644</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/LGRS.2023.3284675" target="_blank">Machine Learning Based Ensemble Band Selection for Early Water Stress Identification in Groundnut Canopy Using UAV Based Hyperspectral Imaging</a></div>
+                        <div class="pub-authors">A. U. G. Sankararao, S. Choudhary, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Geoscience and Remote Sensing Letters, vol. 20, pp. 1-5, 2023, Art no. 5505805. (IF: 4.0), DOI:10.1109/LGRS.2023.3284675</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/JSEN.2024.3512418" target="_blank">LiDAR Sensing Based Exponential Adaptive Cruise Control and Steering Assist for ADAS</a></div>
+                        <div class="pub-authors">A. Thakur, C.A. Rakshith Ram, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Sensors Journal, DOI:10.1109/JSEN.2024.3512418</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1177/03611981241272091" target="_blank">Impact of Texting Induced Distraction on Driving Behavior, A Field Operation Test-Based Study</a></div>
+                        <div class="pub-authors">Ankit Singh, Aman Srivastava, Digvijay S Pawar, Rajalakshmi P</div>
+                        <div class="pub-meta">Transportation Research Record, DOI:10.1177/03611981241272091</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/LSENS.2024.3416411" target="_blank">L3D-OTVE: LiDAR-based 3D Object Tracking and Velocity Estimation Using LiDAR Odometry</a></div>
+                        <div class="pub-authors">A. Thakur, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Sensors Letters, DOI:10.1109/LSENS.2024.3416411</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/TRS.2024.3408231" target="_blank">An Efficient Approach for Calibration of Automotive Radar-Camera with Real Time Projection of Multimodal Data</a></div>
+                        <div class="pub-authors">N. Kumar, A. Dasgupta, V. S. Mutnuri, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Transactions on Radar Systems, DOI:10.1109/TRS.2024.3408231</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/OJIM.2024.3412219" target="_blank">LiDAR-Based Optimized Normal Distribution Transform Localization on 3D Map for Autonomous Navigation</a></div>
+                        <div class="pub-authors">Abhishek Thakur, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Open Journal of Instrumentation and Measurement, vol. 3, pp. 1-11, 2024, DOI:10.1109/OJIM.2024.3412219</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/LSENS.2024.3401233" target="_blank">A Sliding Window Technique based Radar and Camera Fusion Model for Object Detection in Adverse Weather Condition</a></div>
+                        <div class="pub-authors">Sanju Kumar NT, Santhanu Yadav, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Sensors Letters, DOI:10.1109/LSENS.2024.3401233</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1108/AEAT-07-2023-0180" target="_blank">Mathematical modelling for compliance-assisted artificial muscle based ornithopter</a></div>
+                        <div class="pub-authors">Syam Narayanan, Biju A.T., Madupu S, Rajalakshmi P</div>
+                        <div class="pub-meta">Aircraft Engineering and Aerospace Technology, 96 (4), pp. 604-620, 2024, DOI:10.1108/AEAT-07-2023-0180</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/LSENS.2024.3387329" target="_blank">Aeroacoustics and Vibration Analysis of Multirotor eVTOL for Sustainable Urban Air Mobility (UAM)</a></div>
+                        <div class="pub-authors">Sanju Kumar NT, Prasanth Kumar Duba, Naga Praveen Babu Mannam, Venkat S Mutnuri, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Sensor Letter, pp. 1-4, 2024, DOI:10.1109/LSENS.2024.3387329</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/TNSM.2024.3385385" target="_blank">Evaluating Federated Learning based Intrusion Detection Scheme for Next Generation Networks</a></div>
+                        <div class="pub-authors">Gurpreet Singh, Keshav Sood, DINH Due Nha Nguyen, Yong Xiang, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Transactions on Network and Service Management, 2024, DOI:10.1109/TNSM.2024.3385385</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1016/j.actaastro.2024.02.032" target="_blank">Stereo Vision Based Object Detection for Autonomous Navigation in Space Environments</a></div>
+                        <div class="pub-authors">Prasanth Kumar Duba, Naga Praveen Babu M, Rajalakshmi P</div>
+                        <div class="pub-meta">Acta Astronautica, 326-329, Elsevier, 2024, DOI:10.1016/j.actaastro.2024.02.032</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.47176/jafm.17.6.2403" target="_blank">Aerodynamic Performance of Lambda Wing-UCAV at Different Back-Sweep Angles</a></div>
+                        <div class="pub-authors">Syam Narayanan S, Yogesh Gangurde, Rajalakshmi P</div>
+                        <div class="pub-meta">Journal of Applied Fluid Mechanics, 17, No. 6, pp. 1182-1190, 2024, DOI:10.47176/jafm.17.6.2403</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1109/OJVT.2024.3368240" target="_blank">Towards 6G V2X Sidelink: Survey of Resource Allocation - Mathematical Formulations, Challenges, and Proposed Solutions</a></div>
+                        <div class="pub-authors">Annu, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE OJVT-2024-02-0032, 5, pp. 344-383, DOI:10.1109/OJVT.2024.3368240</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.3389/fpls.2023.1241921" target="_blank">A Spatial-Spectral-Temporal Deformable Attention-based Framework for Water Stress Classification in Maize</a></div>
+                        <div class="pub-authors">Tejasri N, Kshitiz Kumar, Soumyajit Chatterjee, Balaji Naik, Uday B Desai, Rajalakshmi P</div>
+                        <div class="pub-meta">Special Issue on IoT, UAV, BCI Empowered Deep Learning models in Precision Agriculture, 2023, DOI:10.3389/fpls.2023.1241921</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title"><a href="https://doi.org/10.1016/j.ophoto.2023.100042" target="_blank">A step towards inter-operable Unmanned Aerial Vehicles (UAV) based phenotyping; A case study demonstrating a rapid, quantitative approach to standardize image acquisition and check quality of acquired images</a></div>
+                        <div class="pub-authors">Priyanka Gattu, Rajalakshmi P</div>
+                        <div class="pub-meta">ISPRS Open Journal of Photogrammetry and Remote Sensing, 2023, DOI: 10.1016/j.ophoto.2023.100042</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title">Machine Learning-Based Ensemble Band Selection for Early Water Stress Identification in Groundnut Canopy Using UAV-Based Hyperspectral Imaging</div>
+                        <div class="pub-authors">Adduru U.G. Sankararao, Sunitha Choudhary, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Geoscience and Remote Sensing Letters, vol. 20, pp. 1-5, 2023, Art no. 5505805, DOI: https://doi.org/10.1109/LGRS.2023.3284675</div>
+                    </div>
+                    
+                    <div class="pub-item scroll-animation">
+                        <div class="pub-title">A Novel Real-Time LiDAR Data Streaming Framework</div>
+                        <div class="pub-authors">Bhaskar Anand, H. R. Kambhampaty, Rajalakshmi P</div>
+                        <div class="pub-meta">IEEE Sensors Journal, vol. 22, no. 23, pp. 23476-23485, 1 Dec. 1, 2022, DOI:10.1109/JSEN.2022.3215189</div>
+                    </div>
+
+                    <div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1016/j.rsase.2021.100549" target="_blank">Efficient Maize Tassel-Detection Method using UAV based remote sensing</a></div>
+    <div class="pub-authors">Ajay Kumar, Rajalakshmi P</div>
+    <div class="pub-meta">Remote Sensing Applications: Society and Environment, Vol 23, 2021, DOI:10.1016/j.rsase.2021.100549</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1016/j.biosystemseng.2021.08.032" target="_blank">Fully automated region of interest segmentation pipeline for UAV based RGB images</a></div>
+    <div class="pub-authors">Shreeshan S, Subhra S Bhattacherjee, Gattu Priyanka, Jana Kholova, Rajalakshmi P</div>
+    <div class="pub-meta">Biosystems Engineering, Volume 211, 2021,ISNN 1537, DOI:10.1016/j.biosystemseng.2021.08.032</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/TIM.2021.3117661" target="_blank">LiDAR-INS/GNSS Based Real-Time Ground Removal, Segmentation and Georeferencing Framework for Smart Transportation</a></div>
+    <div class="pub-authors">Bhaskar Anand, Mrinal Senapati, Vivek Barsaiyan, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Transactions on Instrumentation and Measurement, vol. 70, pp. 1-11,Art no.8504611, 2021, DOI:10.1109/TIM.2021.3117661</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1016/j.bbe.2021.05.004" target="_blank">A Deep Learning Based Approach for Classification of Abdominal Organs using Ultrasound Images in Elsevier</a></div>
+    <div class="pub-authors">D. Santhosh Reddy, R. Bharath, Rajalakshmi P</div>
+    <div class="pub-meta">Biocybernetics and Biomedical Engineering, Volume 41, Issue 2, 2021, Pages 779-791, ISNN 0208-5216 DOI:10.1016/j.bbe.2021.05.004</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1007/s40012-019-00244-9" target="_blank">CNN based framework for representative detection of liver images for CAD and tele-sonography applications</a></div>
+    <div class="pub-authors">D. Santhosh Reddy, R. Bharath, Rajalakshmi P</div>
+    <div class="pub-meta">CSI Transactions on ICT.7:1-8, 2019, DOI:10.1007/s40012-019-00244-9</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/TVT.2019.2903890" target="_blank">Saturated Throughput Analysis of IEEE 802.11ad EDCA For High Data Rate 5G-IoT Applications</a></div>
+    <div class="pub-authors">Kiran M. P. R. S., Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Transactions on Vehicular Technology, vol. 68, no. 5, pp. 4774-4785, May 2019, DOI:10.1109/TVT.2019.2903890</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/TII.2018.2802497" target="_blank">Performance Analysis of CSMA/CA and PCA for Time Critical Industrial IoT Applications</a></div>
+    <div class="pub-authors">M. P. R. S. Kiran, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Transactions on Industrial Informatics, vol. PP, no. 99, pp. 1-1, DOI:10.1109/TII.2018.2802497</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/TII.2017.2766783" target="_blank">Novel Power Management Scheme and Effects of Constrained On-node Storage on Performance of MAC Layer for Industrial IoT Networks</a></div>
+    <div class="pub-authors">M. P. R. S. Kiran, V. Subrahmanyam, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Transactions on Industrial Informatics, vol. PP, no. 99, pp. 1-1, DOI:10.1109/TII.2017.2766783</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1007/s11277-019-06484-x" target="_blank">Smartphone Based Acoustic Navigation Tool for IoT Networks</a></div>
+    <div class="pub-authors">M. Amarlingam, Rajalakshmi P</div>
+    <div class="pub-meta">Wireless Personal Communications, 2019, vol. 108, DOI:10.1007/s11277-019-06484-x</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1016/j.jnca.2018.08.004" target="_blank">Novel Light Weight Compressed Data Aggregation using sparse measurements for IoT networks</a></div>
+    <div class="pub-authors">Amarlingam M, P. K. Mishra, Sumohana S. Channappayya, C. S. Sastry, Rajalakshmi P</div>
+    <div class="pub-meta">Journal of Network and Computer Applications, Volume 121, ISNN 1084-8045, 2018, DOI:10.1016/j.jnca.2018.08.004</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1016/j.pacs.2019.01.002" target="_blank">Multiview spatial compounding using lens-based photoacoustic imaging system</a></div>
+    <div class="pub-authors">Francis Kalloor Joseph, Navalgund Rao, Bhargava Chinni, Vikram Dogra, Sumohana Channappayya, Rajalakshmi P</div>
+    <div class="pub-meta">Photoacoustics, Volume 13, ISNN 2213-5979, 2019, DOI:10.1016/j.pacs.2019.01.002</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.10881361-6560aac8c5" target="_blank">Two sided residual refocusing for acoustic lens based photoacoustic imaging system</a></div>
+    <div class="pub-authors">Francis Kalloor Joseph, Chinni Bhargava, Sumohana Channappayya, Vikram Dogra, Navalgund Rao, Rajalakshmi P</div>
+    <div class="pub-meta">Physics in Medicine and Biology, vol. 63, DOI:10.10881361-6560aac8c5</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1016/j.actaastro.2024.02.032" target="_blank">Concept Study of Titan Submarine Operating in Saturn Moon Titan Liquid Methane and Ethane Seas</a></div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Basa Sidvik, Rajalakshmi P</div>
+    <div class="pub-meta">By using Experimental and CFD methods in ocean science, 2022, DOI:10.1109/JSEN.2022.3215189</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/JIOT.2014.2388074" target="_blank">Novel Sampling Algorithm for Human Mobility Based Mobile Phone Sensing</a></div>
+    <div class="pub-authors">Thejaswini M, U. B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Internet of Things Journal, vol. 2,no. 3, pp.210-220, 2015, DOI:10.1109/JIOT.2014.2388074</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1007/s12083-015-0382-7" target="_blank">Duration of Stay Based Weighted Scheduling Framework for Mobile Phone Sensor Data Collection in Opportunistic Crowdsensing</a></div>
+    <div class="pub-authors">Thejaswini M, U. B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">Peer-to-Peer Networking and Applications: Crowd Sensing Networks, Springer, July 2016, Vol.9, no.4, pp. 721-730, DOI:10.1007/s12083-015-0382-7</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2013.6720673" target="_blank">Accurate and Reliable 3-lead to 12-lead ECG Reconstruction Methodology for Remote Health Monitoring Applications</a></div>
+    <div class="pub-authors">Maheswari S, Acharyya A, Puddu P.E., Schiariti M, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 15th Int. Conf. on e-Health Networking, Applications and Services (Healthcom 2013),Lisbon, Portugal, 2013, pp. 233-237, DOI:10.1109/HealthCom.2013.6720673</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WAINA.2013.181" target="_blank">Effect of relay nodes and transmit power on end-to-end delay in multi-hop wireless ad hoc networks</a></div>
+    <div class="pub-authors">Raja Vara Prasad Y, Rajalakshmi P</div>
+    <div class="pub-meta">Int. Journal of Space Based Situational Computing, Inderscience Publishers.25-28 March, 2013, DOI:10.1109/WAINA.2013.181</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.21917/ijct.2011.0051" target="_blank">Real time wireless air pollution monitoring system</a></div>
+    <div class="pub-authors">Raja Varaprasad Y, Mirzasami Baig, Rahul K Mishra, U. B. Desai, S. N. Merchant, Rajalakshmi P</div>
+    <div class="pub-meta">ICTACT Journal on Communication Technology, vol. 2, issue-2, June 2011, pp.370-375, DOI:10.21917/ijct.2011.0051</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/JLT.2008.926917" target="_blank">Re-routing at critical nodes to enhance performance of wavelength reassignment in all-optical WDM networks without wavelength conversions</a></div>
+    <div class="pub-authors">Ashok Jhunjhunwala, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE/OSA Journal of Lightwave Technology, vol. 26, issue 17, 2008, pp. 3021-3029, DOI:10.1109/JLT.2008.926917</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1080/03772063.2008.10876179" target="_blank">Analytical performance computations for optical networks with wavelength conversion</a></div>
+    <div class="pub-authors">Ashok Jhunjhunwala, Rajalakshmi P</div>
+    <div class="pub-meta">IETE Journal of Research, vol. 54, issue 1, Published online: 01 Sep 2014, pp no 31-38, DOI:10.1080/03772063.2008.10876179</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1016/j.osn.2007.08.002" target="_blank">Wavelength Reassignment Algorithms for All-Optical WDM Backbone Networks</a></div>
+    <div class="pub-authors">Ashok Jhunjhunwala, Rajalakshmi P</div>
+    <div class="pub-meta">Elsevier Optical Switching and Networking Journal, vol. 4, issue 3/4, 2007, pp. 147-156, 24 August 2007, DOI:10.1016/j.osn.2007.08.002</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICON.2006.302634" target="_blank">Routing Wavelength and Timeslot Reassignment Algorithms for TDM based Optical WDM Networks - Multi rate traffic demands</a></div>
+    <div class="pub-authors">Ashok Jhunjhunwala, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Int. Conf. on Networks, Singapore, 2006, pp. 1-6, 2006, DOI:10.1109/ICON.2006.302634</div>
+</div>
+
+<!-- ... Continue adding more entries as needed ... -->
+
+                </div>
+            </div>
+
+
+            <div id="conferences" class="tab-content">
+                <div class="pub-list">
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.23919/ITUK62727.2024.10772915" target="_blank">6G Standards: Novel Approaches For Efficient Resource Allocation In V2X Sidelink Communication</a></div>
+    <div class="pub-authors">Annu Rajalakshmi P</div>
+    <div class="pub-meta">2024 ITU Kaleidoscope: Innovation and Digital Transformation for a Sustainable World (ITU K), New Delhi, India, 2024, pp. 1-8, DOI:10.23919/ITUK62727.2024.10772915</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Aligning LiDAR to Vision Language Space: A fusion approach for Steering Angle Regression of a Vehicle</div>
+    <div class="pub-authors">Alam Parvez, Sathvik V, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE IJCNN Workshop Proceedings, 2025</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/VTC2024-Fall63153.2024.10757604" target="_blank">LiDAR-OdomNet: LiDAR Odometry Network Using Feature Fusion Based on Attention</a></div>
+    <div class="pub-authors">Alam Parvez, Rajalakshmi P</div>
+    <div class="pub-meta">2024 IEEE 100th Vehicular Technology Conference (VTC2024-Fall), DOI:10.1109/VTC2024-Fall63153.2024.10757604</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">TIAND-SLAM: A Multi-Modal SLAM Dataset for Autonomous Navigation</div>
+    <div class="pub-authors">A. Thakur, Abhilash S., V Samuktha, Rajalakshmi P</div>
+    <div class="pub-meta">2025 IEEE Intelligent Vehicles Symposium (IV)</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Optimization of GNSS/IMU Positional Accuracy With Kalman Filtering and RTK Corrections for Autonomous Vehicle Applications</div>
+    <div class="pub-authors">Devadas Kuna, Rishav Kumar, D Santhosh Reddy, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE APSCON 2025</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Towards Robust Perception: A Framework for Combining Point Clouds From Multiple LiDARs</div>
+    <div class="pub-authors">C.A. Rakshith Ram, Abhishek Thakur, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE APSCON 2025</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">A-RoI: Adaptive Region of Interest to Enhance Obstacle Awareness for Autonomous Driving</div>
+    <div class="pub-authors">C.A. Rakshith Ram, Abhishek Thakur, Rajalakshmi P</div>
+    <div class="pub-meta">9th International Conference on Robotics and Automation Sciences (ICRAS), Osaka, Japan, 2025</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/SAS60918.2024.10636564" target="_blank">A Framework for Object Classification via Camera-Radar Fusion with Automated Labeling</a></div>
+    <div class="pub-authors">Samuktha, V., Abhilash, S., Kumar, N., Rajalakshmi P</div>
+    <div class="pub-meta">2024 IEEE Sensors Applications Symposium (SAS), pp. 1-6, DOI:10.1109/SAS60918.2024.10636564</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IV55156.2024.10588583" target="_blank">TIAND: A Multimodal Dataset for Autonomy on Indian Roads</a></div>
+    <div class="pub-authors">Kumar, N., Abhilash, S., Thakur, A., Gopi, O., Dasgupta, A., Algole, Rajalakshmi P</div>
+    <div class="pub-meta">2024 IEEE Intelligent Vehicles Symposium (IV), pp. 688-694, DOI:10.1109/IV55156.2024.10588583</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/VNC61989.2024.10576016" target="_blank">Enhancing Sidelink V2X Communication in 6G Networks: Power-Domain NOMA-Based Priority Message Transmission Approach</a></div>
+    <div class="pub-authors">Annu, Rajalakshmi P</div>
+    <div class="pub-meta">2024 IEEE Vehicular Networking Conference (VNC), Kobe, Japan, 2024, pp. 117-124, DOI:10.1109/VNC61989.2024.10576016</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT58464.2023.10539492" target="_blank">Joint Scheduling of Communication and Computation Resources for Efficient Computation offloading in MEC-based V2X Systems</a></div>
+    <div class="pub-authors">Annu, Rajalakshmi P</div>
+    <div class="pub-meta">2023 IEEE 9th World Forum on Internet of Things (WF-IoT), Aveiro, Portugal, 2023, pp. 1-8, DOI:10.1109/WF-IoT58464.2023.10539492</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/SmartNets58706.2023.10215515" target="_blank">Optimizing Latency for Real-time Traffic and Road Safety Applications through MEC-based V2X System</a></div>
+    <div class="pub-authors">Annu, P. Tammana, Rajalakshmi P</div>
+    <div class="pub-meta">2023 International Conference on Smart Applications, Communications and Networking (SmartNets), Istanbul, Turkiye, 2023, pp. 1-8, DOI:10.1109/SmartNets58706.2023.10215515</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.21227/f2kd-9g03" target="_blank">TiHAN-V2X: A Comprehensive Dataset for Dynamic C-V2X Communication within the Indian Context</a></div>
+    <div class="pub-authors">ANNU, Phaneendra Pydimarri, Sunnam Venkata Srikanth, Munjagala Prasad, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Dataport, October 8, 2024, DOI:10.21227/f2kd-9g03</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WHISPERS61460.2023.10431286" target="_blank">Hyperspectral Image Denoising: A Comparative Study On UAV Based Vegetation Data</a></div>
+    <div class="pub-authors">A. U. G. Sankararao, K. Saikiran, Rajalakshmi P</div>
+    <div class="pub-meta">2023 13th Workshop on Hyperspectral Imaging and Signal Processing: Evolution in Remote Sensing (WHISPERS), IEEE, Athens, Greece, 2023, pp. 1-5, DOI:10.1109/WHISPERS61460.2023.10431286</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/SAS54819.2022.9881337" target="_blank">Water Stress Detection in Pearl Millet Canopy with Selected Wavebands using UAV Based Hyperspectral Imaging and Machine Learning</a></div>
+    <div class="pub-authors">A. U. G. Sankararao, Sivasakthi Kaliamoorthy, Sunitha Choudhary, Rajalakshmi P</div>
+    <div class="pub-meta">2022 IEEE Sensors Applications Symposium (SAS), Sundsvall, Sweden, 2022, pp. 1-6, DOI:10.1109/SAS54819.2022.9881337</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/InGARSS51564.2021.9791950" target="_blank">Optimal Parameter Selection for UAV Based Pushbroom Hyperspectral Imaging</a></div>
+    <div class="pub-authors">A. U. G. Sankararao, Sanju Kumar N.T, D. Naresh, Rajalakshmi P</div>
+    <div class="pub-meta">2021 IEEE International India Geoscience and Remote Sensing Symposium (InGARSS), Ahmedabad, India, 2021, pp. 413-416, DOI:10.1109/InGARSS51564.2021.9791950</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/GUCON48875.2020.9231236" target="_blank">Workflow and Calibration of Airborne Hyperspectral Imaging System</a></div>
+    <div class="pub-authors">A. Thakur, Rajalakshmi P</div>
+    <div class="pub-meta">2020 IEEE International Conference on Computing, Power and Communication Technologies (GUCON), Greater Noida, India, 2020, pp. 757-762, DOI:10.1109/GUCON48875.2020.9231236</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">LiDAR-IMU Fusion for Distortionless Point Cloud Generation in Hybrid Solid-State LiDAR for 3D Mapping</div>
+    <div class="pub-authors">A. U. G. Sankararao, Sanju Kumar N.T, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE APSCON 2025</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Range Analysis for Effective Object Detection Algorithms for Camera in Autonomous Vehicles</div>
+    <div class="pub-authors">S. Abhilash, Nitish Kumar, Rajalakshmi P</div>
+    <div class="pub-meta">2025 IEEE Applied Sensing Conference (APSCON), Hyderabad, India</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Stover Nitrogen Estimation in Groundnut Using Hyperspectral UAV Imagery and Machine Learning</div>
+    <div class="pub-authors">A. U. G. Sankararao, Sai Kiran K, Sunita Choudhary, Rajalakshmi P</div>
+    <div class="pub-meta">Accepted for 3rd International IEEE Applied Sensing Conference (APSCON), 2025</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/VTC2024-Fall63153.2024.10757568" target="_blank">LiDAR-GNSS Fusion to Initiate Localization at Intermediate Points on a 3D Point Cloud Map</a></div>
+    <div class="pub-authors">A. Thakur, C.A. Rakshith Ram, S. Sathvik, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 100th Vehicular Technology Conference (VTC2024-Fall), Washington DC, USA, 2024, DOI:10.1109/VTC2024-Fall63153.2024.10757568</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1145/3702250.3702254" target="_blank">Lost in Context: The Influence of Context on Feature Attribution Methods for Object Recognition</a></div>
+    <div class="pub-authors">Rishav Kumar, Sayanta Adhikari, Dr. Konda Reddy Mopuri, Rajalakshmi P</div>
+    <div class="pub-meta">Indian Conference on Computer Vision, Graphics and Image Processing (ICVGIP) 2024, DOI:10.1145/3702250.3702254</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Enhancing Water Stress Classification using Drift-Aware Dynamic Neural Networks</div>
+    <div class="pub-authors">Tejasri N, Balram M., U.B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">Workshop on Women in Machine Learning, NeuRIPS 2024</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/VTC2024-Fall63153.2024.10757901" target="_blank">Evaluating Driver Reactions to Speed Bumps and Potholes for Enhancing Autonomous Vehicle Performance</a></div>
+    <div class="pub-authors">Rishav Kumar, Devadas Kuna, Dr. Santhosh Reddy D, Yuki Uetsuki, Dinesh Kumar Sonkar, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Vehicular Technology Conference (VTC) Fall 2024, DOI:10.1109/VTC2024-Fall63153.2024.10757901</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/VTC2024-Fall63153.2024.10757993" target="_blank">Distance-Based Queue Modeling in Sidelink C-V2X Communication for Platooning: Towards 6G-V2X</a></div>
+    <div class="pub-authors">Annu, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 100th Vehicular Technology Conference (VTC2024-Fall), Washington DC, USA, 2024, DOI:10.1109/VTC2024-Fall63153.2024.10757993</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ITSC58415.2024.10920219" target="_blank">Real-Time Traffic Sign Recognition in Diverse Weather Conditions Through Adaptive Feature Learning</a></div>
+    <div class="pub-authors">Kshitiz Kumar, Santhosh Reddy, Rajalakshmi P</div>
+    <div class="pub-meta">27th IEEE International Conference on Intelligent Transportation Systems (ITSC), DOI:10.1109/ITSC58415.2024.10920219</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Real-time 3D Map Generation and Analysis Using Multi-channel LiDAR Sensor</div>
+    <div class="pub-authors">Abhishek Thakur, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 9th International Conference for Convergence in Technology (I2CT), Pune, India, 2024, pp. 1-5</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Speed Bump Detection on LiDAR Point Cloud for Autonomous Vehicles</div>
+    <div class="pub-authors">Bhaskar Anand, Vishnuvardhan Reddy Kalluri, Rajalakshmi P</div>
+    <div class="pub-meta">Accepted in SAS 2024</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Future-Proofing 6G V2X Sidelink Connectivity: Scheduling and Adaptive Beamforming Integration</div>
+    <div class="pub-authors">Annu, Rajalakshmi P</div>
+    <div class="pub-meta">Accepted in IEEE BlackSeaCom 2024</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Enhancing Sidelink V2X Communication in 6G Networks: Power-Domain NOMA-Based Priority Message Transmission Approach</div>
+    <div class="pub-authors">Annu, Rajalakshmi P</div>
+    <div class="pub-meta">Accepted in IEEE VNC 2024</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Investigating the Segment Anything Model for Crop Head Counting in Cereal Crops</div>
+    <div class="pub-authors">Tejasri N, Balram M, Balaji N, U. B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">Accepted to Second International Conference on Agriculture-Centric Computation (ICA) 2024</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">UAV-borne Hyperspectral Imaging Dataset of Pearl Millet Canopy Water Stress</div>
+    <div class="pub-authors">Adduru U G Sankararao, Sai Kiran K, Sunita Choudhary, Rajalakshmi P</div>
+    <div class="pub-meta">Accepted in Second International Conference on Agriculture-Centric Computation (ICA) 2024</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Autonomous Cooperative Platooning Powered by LiDAR-Guided Adaptive Cruise Control</div>
+    <div class="pub-authors">A. Thakur, C.A. Rakshith Ram, S. Sathvik, B. Badugu, S. Shinde, Rajalakshmi P</div>
+    <div class="pub-meta">2024 IEEE 99th Vehicular Technology Conference (VTC2024-Spring), Singapore</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Panicle Segmentation on UAV Captured Multispectral Paddy Crop Imagery</div>
+    <div class="pub-authors">Tejasri N, Praneela Sunkari, Balram Marathi, Uday B Desai, Rajalakshmi P</div>
+    <div class="pub-meta">Accepted in IGARSS 2024</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Design Considerations and Framework Analysis for Software-Defined Autonomous Vehicles</div>
+    <div class="pub-authors">Kratika Yadav, Swapnil Shinde, Chebrolu Varsha, Ashish Kumar, Vempadapu Ramakrishna, Rajalakshmi P</div>
+    <div class="pub-meta">Accepted in 2024 IEEE 99th Vehicular Technology Conference: VTC2024-Spring</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">YoloV8 Based Novel Approach for Object Detection on LiDAR Point Cloud</div>
+    <div class="pub-authors">Sriya Behera, Bhaskar Anand, Rajalakshmi P</div>
+    <div class="pub-meta">Accepted in 2024 IEEE 99th Vehicular Technology Conference: VTC2024-Spring</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Development of an Autonomous Bl hver="https://doi.org/10.1109/SmartNets58706.2023.10215515" target="_blank">Optimizing Latency for Real-Time Traffic and Road Safety Applications Through MEC-Based V2X System</a></div>
+    <div class="pub-authors">Annu S, Rajalakshmi P</div>
+    <div class="pub-meta">SMARTNET 2023, WCN, DOI:10.1109/SmartNets58706.2023.10215515</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Deep Networks based Approach for Automatic Counting Panicles on UAV captured Paddy RGB Imagery</div>
+    <div class="pub-authors">Tejasri N, Sam Mathew, Balram M, U.B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">Accepted in 2023 European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IGARSS46834.2022.9883045" target="_blank">UAV Based Hyperspectral Remote Sensing and CNN for Vegetation Classification</a></div>
+    <div class="pub-authors">Adduru U G Sankararao, Rajalakshmi P</div>
+    <div class="pub-meta">International Geoscience and Remote Sensing Symposium (IGARSS) 2022, DOI:10.1109/IGARSS46834.2022.9883045</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IGARSS46834.2022.9884107" target="_blank">Deep Learning based Overcomplete Representations for Paddy Rice Crop and Weed Segmentation</a></div>
+    <div class="pub-authors">Ujwal Sai G, Tejasri N, Ajay Kumar, Rajalakshmi P</div>
+    <div class="pub-meta">International Geoscience and Remote Sensing Symposium (IGARSS) 2022, DOI:10.1109/IGARSS46834.2022.9883045</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICARA55094.2022.9738576" target="_blank">Real Time Lidar Odometry and Mapping and Creation of Vector Map</a></div>
+    <div class="pub-authors">A. Thakur, B. Anand, H. Verma, Rajalakshmi P</div>
+    <div class="pub-meta">2022 8th International Conference on Automation, Robotics and Applications (ICARA), pp. 181-185, DOI:10.1109/ICARA55094.2022.9738576</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/SAS54819.2022.9881373" target="_blank">Evaluation of the quality of LiDAR data in the varying ambient light</a></div>
+    <div class="pub-authors">Bhaskar Anand, Harshal Verma, Abhishek Thakur, Parvez Alam, Rajalakshmi P</div>
+    <div class="pub-meta">2022 IEEE Sensors Applications Symposium (SAS), Sundsvall, Sweden, 2022, pp. 1-5, DOI:10.1109/SAS54819.2022.9881373</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IPAS55744.2022.10052939" target="_blank">Drought Stress Segmentation on Drone captured Maize using Ensemble U-Net framework</a></div>
+    <div class="pub-authors">Tejasri N, Ujwal Sai G, Balaji Naik, Uday B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">2022 IEEE 5th International Conference on Image Processing Applications and Systems (IPAS), Genova, Italy, 2022, pp. 1-6, DOI:10.1109/IPAS55744.2022.10052939</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Future Mobility with eVTOL Personal Air Vehicle (PAV): Urban Air Mobility (UAM)</div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Basa Sidvik, Prasanth Kumar Duba, Rajalakshmi P</div>
+    <div class="pub-meta">International Conference on Electrical and Electronic Engineering (ICEEE 2022): Innovations in Electrical and Electronic Engineering, Springer, pp. 323-337, April 2022</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Autonomous Bio-Inspired Micro Aerial Vehicle (MAV)</div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Prasanth Kumar D, Gaddipati Chaitanya Sriram, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE IAS Global Conference on Emerging Technologies (GlobConET), pp. 661-666, May 2022</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Autonomous Emergency Braking (AEB) Evaluation For Indian Traffic Scenarios using GPS and LiDAR Data</div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Mallika Gawande, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE IAS Global Conference on Emerging Technologies (GlobConET), pp. 655-660, May 2022</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">AEB Evaluation for the Car to Pedestrian Farside Adult (CPFA) Scenarios</div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Harshal Verma, Rajalakshmi P</div>
+    <div class="pub-meta">SAEINDIA International Mobility Conference (SIIMC2022), Oct 12-14, 2022</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">UAV based Digital Phenotyping for Managed Stress Environment Potential to Alleviate Efficiency and Precision for Drought Selection</div>
+    <div class="pub-authors">Sunita Choudhary, Jana Kholova, Suchitra Mohan, Krithika Anbazhagan, Srikanth Mallayee, Yogesh Parnandi, Priyanka Gattu, Sachin Gattu, J Adinarayana, Vincent Vadez, Rajalakshmi P</div>
+    <div class="pub-meta">Interdrought VII, Dec 2022</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Concept Study of Titan Submarine Operating in Saturn Moon Titan's Liquid Methane and Ethane Seas Using Experimental and CFD Methods</div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Basa Sidvik, Rajalakshmi P</div>
+    <div class="pub-meta">3rd International Refinery & Petrochemical Technology Conference & Exhibition, 23rd & 24th August 2022, Hotel HOLIDAY INN MAYUR VIHAR, New Delhi</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">3D LiDAR Based Pipeline Detection and Tracking Using Machine Learning (ML)</div>
+    <div class="pub-authors">Sanju Kumar N T, Harshal Verma, Naga Praveen Babu M, V Gunashekhar, Rajalakshmi P</div>
+    <div class="pub-meta">3rd International Refinery & Petrochemical Technology Conference & Exhibition, 23rd & 24th August 2022, Hotel Holiday INN Mayur Vihar, New Delhi, India</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Autonomous Real-Time Vision-Based NDT Inspection of Pipelines Using Deep Learning Models</div>
+    <div class="pub-authors">Gunashekhar V, Naga Praveen Babu Mannam, Rajalakshmi P</div>
+    <div class="pub-meta">3rd International Refinery & Petrochemical Technology Conference & Exhibition, 23rd & 24th August 2022, Hotel Holiday INN Mayur Vihar, New Delhi, India</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Autonomous Navigation and Fault Detection of Pipelines Using 2D LiDAR Sensors</div>
+    <div class="pub-authors">Naga Praveen Babu M, V Gunashekhar, Annam Hussain, Rajalakshmi P</div>
+    <div class="pub-meta">3rd International Refinery & Petrochemical Technology Conference & Exhibition, 23rd & 24th August 2022, Hotel Holiday INN Mayur Vihar, New Delhi, India</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/GlobConPT57482.2022.9938228" target="_blank">Bioinspired Flapping Foil with Trailing Edge Flap for Remotely Operated Vehicles (ROVs)</a></div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Sanju Kumar N T, Prasanth Kumar D, Rajalakshmi P</div>
+    <div class="pub-meta">2022 IEEE 5th International Conference on Computing, Power and Communication Technologies (GUCON), India Habitat Centre, Lodhi Road, New Delhi, India, September 23-25, 2022, DOI:10.1109/GlobConPT57482.2022.9938228</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/GlobConPT57482.2022.9938337" target="_blank">Mobile Robot Terrain Mapping for Path Planning using Karto SLAM and G Mapping Technique</a></div>
+    <div class="pub-authors">Sanju Kumar N T, Malika G, Naga Praveen Babu Mannam, Harshal Verma, Rajalakshmi P</div>
+    <div class="pub-meta">2022 IEEE 5th International Conference on Computing, Power and Communication Technologies (GUCON), India Habitat Centre, Lodhi Road, New Delhi, India, September 23-25, 2022, DOI:10.1109/GlobConPT57482.202руса
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/GlobConPT57482.2022.9938180" target="_blank">Determination of ADAS AEB Car to Car and Pedestrian Scenarios for Autonomous Vehicles</a></div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Rajalakshmi P</div>
+    <div class="pub-meta">2022 IEEE 5th International Conference on Computing, Power and Communication Technologies (GUCON), India Habitat Centre, Lodhi Road, New Delhi, India, September 23-25, 2022, DOI:10.1109/GlobConPT57482.2022.9938180</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Design and Development of ADAS Features for AGVs in SiL in an Indian Setting</div>
+    <div class="pub-authors">Amar Kumar Verma, Rajalakshmi P</div>
+    <div class="pub-meta">dSpace User Conference, Bangalore, India, September 16, 2022</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Humanoid Robot</div>
+    <div class="pub-authors">Amar Kumar Verma, Rajalakshmi P</div>
+    <div class="pub-meta">State S&T Ministers' Conclave, Science City, Ahmedabad, India, September 10-11, 2022</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">AEB Evaluation for the Car to Pedestrian Farside Adult (CPFA) Scenarios</div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Harshal Verma, Rajalakshmi P</div>
+    <div class="pub-meta">SAEINDIA International Mobility Conference (SIIMC2022), Oct 12-14, 2022</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IGARSS46834.2022.9883045" target="_blank">UAV Based Hyperspectral Remote Sensing and CNN for Vegetation Classification</a></div>
+    <div class="pub-authors">Adduru U G Sankararao, Rajalakshmi P</div>
+    <div class="pub-meta">International Geoscience and Remote Sensing Symposium (IGARSS) 2022, DOI:10.1109/IGARSS46834.2022.9883045</div>
+</div>
+
+  <div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IGARSS46834.2022.9884107" target="_blank">Deep Learning based Overcomplete Representations for Paddy Rice Crop and Weed Segmentation</a></div>
+    <div class="pub-authors">Ujwal Sai G, Tejasri N, Ajay Kumar, Rajalakshmi P</div>
+    <div class="pub-meta">International Geoscience and Remote Sensing Symposium (IGARSS) 2022, DOI:10.1109/IGARSS46834.2022.9884107</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Concept Study of Titan Submarine Operating in Saturn Moon Titan's Liquid Methane and Ethane Seas Using Experimental and CFD Methods</div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Basa Sidvik, Rajalakshmi P</div>
+    <div class="pub-meta">Ocean Sciences Meeting 2022, USA</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICARA55094.2022.9738576" target="_blank">Real Time Lidar Odometry and Mapping and Creation of Vector Map</a></div>
+    <div class="pub-authors">A. Thakur, B. Anand, H. Verma, Rajalakshmi P</div>
+    <div class="pub-meta">2022 8th International Conference on Automation, Robotics and Applications (ICARA), pp. 181-185, DOI:10.1109/ICARA55094.2022.9738576</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/SMARTGENCON51891.2021.9645802" target="_blank">Powering Prediction of an Autonomous Campus Shuttle using CFD</a></div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, B. Sidvik, Rajalakshmi P</div>
+    <div class="pub-meta">2022 International Conference on Smart Generation Computing, Communication and Networking (SMARTGEN), DOI:10.1109/SMARTGENCON51891.2021.9645802</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ComPE53109.2021.9752005" target="_blank">Hydrodynamic Analysis of Extra-Terrestrial Submarine in Lakes of Titan using CFD</a></div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Basa Sidvik, Rajalakshmi P</div>
+    <div class="pub-meta">2021 International Conference on Computational Performance Evaluation (ComPE), pp. 977-982, December 2021, DOI:10.1109/ComPE53109.2021.9752005</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ANTS52808.2021.9936965" target="_blank">A Novel Load Estimation Based Dynamic CBAP Allocation Policy for mmWave WLANs</a></div>
+    <div class="pub-authors">M. P. R. S. Kiran, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE International Conference on Advanced Networks and Telecommunications Systems (ANTS) 2021, DOI:10.1109/ANTS52808.2021.9936965</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ComPE53109.2021.9752005" target="_blank">Hydrodynamic Analysis of Extra-Terrestrial Submarine in the Lakes of Saturn Moon Titan using CFD</a></div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Basa Sidvik, Rajalakshmi P</div>
+    <div class="pub-meta">2nd IEEE IAS International Conference on Computational Performance Evaluation (ComPE-2021), North-Eastern Hill University (NEHU), December 1-3, 2021, DOI:10.1109/ComPE53109.2021.9752005</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IRC52146.2021.00029" target="_blank">Object Detection and Segmentation using LiDAR-Camera Fusion for Autonomous Vehicle</a></div>
+    <div class="pub-authors">M. Senapati, B. Anand, Abhishek Thakur, Harshal Verma, Rajalakshmi P</div>
+    <div class="pub-meta">2020 Fourth IEEE International Conference on Robotic Computing (IRC), 2021, DOI:10.1109/IRC52146.2021.00029</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">A THRUST PERFORMANCE OF INSECT INSPIRED PROPULSION FOR BIOINSPIRED MAVs</div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Rajalakshmi P</div>
+    <div class="pub-meta">International Conference on Futuristic Technologies, Indian Institute of Technology (IIT) Delhi, India, 2021, Paper No. Ft-21001</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Drought and Nitrogen Induced Stress Identification for Maize Crop using Deep Learning deployed on Unmanned Aerial Vehicles (Drones)</div>
+    <div class="pub-authors">Tejasri N, Ujwal Sai, Siddha Ganju, Ajay Kumar, Balaji Naik, Rajalakshmi P</div>
+    <div class="pub-meta">Women in Machine Learning Workshop, NeuRIPS 2021</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/InGARSS51564.2021.9791950" target="_blank">Optimal Parameters Selection for UAV Based Pushbroom Hyperspectral Imaging</a></div>
+    <div class="pub-authors">Adduru U.G. Sankararao, Sanju Kumar N.T, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE India Geoscience and Remote Sensing Symposium 2021, DOI:10.1109/InGARSS51564.2021.9791950</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Development of semi-autonomous dragonfly based UAV in free flight conditions</div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Prasanth Kumar Duba, Rajalakshmi P</div>
+    <div class="pub-meta">2021 International Conference on Smart Generation Computing, Communication and Networking (SMARTGEN), 2021</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/InGARSS51564.2021.9791948" target="_blank">CNN Based Water Stress Detection in Chickpea Using UAV Based Hyperspectral Imaging</a></div>
+    <div class="pub-authors">Adduru U.G. Sankararao, G. Priyanka, Sunitha Choudhary, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE India Geoscience and Remote Sensing Symposium 2021, DOI:10.1109/InGARSS51564.2021.9791948</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Bioinspired Dragonfly Concept for Mars Exploration: Analogous To Mars Ingenuity Helicopter</div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Prasanth Kumar Duba, Rajalakshmi P</div>
+    <div class="pub-meta">Low-Cost Science Mission Concepts for Mars Exploration Workshop, The Westin Pasadena, 191 North Los Robles, Pasadena, California</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Thrust Performance of Insect Inspired Propulsion for Bioinspired MAVs</div>
+    <div class="pub-authors">Naga Praveen Babu Mannam, Rajalakshmi P</div>
+    <div class="pub-meta">International Conference on Futuristic Technologies, 22-24 Jan 2021, Paper No. Ft-21001</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Drone-Based Sensing for Agriculture: Way Forward</div>
+    <div class="pub-authors">Adduru U.G. Sankararao, G. Priyanka, Rajalakshmi P</div>
+    <div class="pub-meta">5th International Agronomy Congress, Nov 2021</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/GUCON50781.2021.9573995" target="_blank">A Comparative Analysis of Algorithms for Pedestrian Tracking using Drone Vision</a></div>
+    <div class="pub-authors">Nikhil Koundinya Poluri, Sanju Kumar N T, Rajalakshmi P</div>
+    <div class="pub-meta">4th IEEE IAS GUCON-2021, New Delhi, India, 2021, DOI:10.1109/GUCON50781.2021.9573995</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/VTC2021-Fall52928.2021.9625507" target="_blank">Quantitative Comparison of LiDAR Point Cloud Segmentation for Autonomous Vehicles</a></div>
+    <div class="pub-authors">B. Anand, V. Barsaiyan, M. Senapati, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 94th Vehicular Technology Conference: VTC2021-Fall, 27-30 September 2021, DOI:10.1109/VTC2021-Fall52928.2021.9625507</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/InGARSS48198.2020.9358930" target="_blank">Identification of Water-Stressed Area in Maize Crop using UAV based Remote Sensing</a></div>
+    <div class="pub-authors">Ajay Kumar, Shreeshan S., Tejasri N, Wei Guo, Balaji Naik, Balram Marathi, Uday Desai, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE International India Geoscience and Remote Sensing Symposium (InGARSS), Ahmedabad, Gujarat, India, 2020, DOI:10.1109/InGARSS48198.2020.9358930</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IGARSS39084.2020.9323266" target="_blank">UAV Based Remote Sensing For Tassel Detection And Growth Stage Estimation of Maize Crop Using Multispectral Images</a></div>
+    <div class="pub-authors">Ajay Kumar, Mahesh Taparia, Wei Guo, Balaji Naik, Balram Marathi, Uday Desai, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE International Geoscience and Remote Sensing Symposium (IGARSS), Waikoloa, Hawaii, USA, 2020, DOI:10.1109/IGARSS39084.2020.9323266</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/GUCON48875.2020.9231050" target="_blank">Detection and Counting of Tassels for Maize Crop Monitoring using Multispectral Images</a></div>
+    <div class="pub-authors">Ajay Kumar, Wei Guo, Balaji Naik B., Balram M., U.B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">3rd IEEE International Conference on Computing, Power and Communication Technologies (GUCON-2020), pp. 789-793, 2-4 Oct. 2020, DOI:10.1109/GUCON48875.2020.9231050</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT48130.2020.9221354" target="_blank">Region of Interest and Car Detection Using LiDAR Data for Advanced Traffic Management System</a></div>
+    <div class="pub-authors">Bhaskar Anand, Vivek Barsaiyan, Mrinal Senapati, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE World Forum on Internet of Things (WF-IoT 2020), New Orleans, USA, 2020, DOI:10.1109/WF-IoT48130.2020.9221354</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT48130.2020.9221162" target="_blank">Geo-Referencing System for Locating Objects Globally in LiDAR Point Cloud</a></div>
+    <div class="pub-authors">Mrinal Senapati, Bhaskar Anand, Vivek Barsaiyan, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE World Forum on Internet of Things (WF-IoT 2020), New Orleans, USA, 2020, DOI:10.1109/WF-IoT48130.2020.9221162</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT48130.2020.9221481" target="_blank">Comparative Analysis of Depth Detection Algorithms Using Stereo Vision</a></div>
+    <div class="pub-authors">Poluri Nihil Koundinya, Yuki Ikeda, Sanju NT, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE World Forum on Internet of Things (WF-IoT 2020), New Orleans, USA, 2020, DOI:10.1109/WF-IoT48130.2020.9221481</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/SAS48726.2020.9220055" target="_blank">Short-Term Memory Based Online Learning Framework for Intelligent Sector Selection in IEEE 802.11ad</a></div>
+    <div class="pub-authors">M. P. R. Sai Kiran, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Sensors Applications Symposium 2020, Kuala Lumpur, Malaysia, 2020, DOI:10.1109/SAS48726.2020.9220055</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/SAS48726.2020.9220056" target="_blank">A Novel Experimental Study to Enhance the Attentional State using EEG Signals</a></div>
+    <div class="pub-authors">Jagadish Bandaru, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Sensors Applications Symposium 2020, Kuala Lumpur, Malaysia, 2020, DOI:10.1109/SAS48726.2020.9220056</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/SAS48726.2020.9220053" target="_blank">Coarse Object Tracking Technique for Point Clouds</a></div>
+    <div class="pub-authors">Anjani Josyula, Bhaskar Anand, Vivek Barsaiyan, Mrinal Senapati, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Sensors Applications Symposium 2020, Kuala Lumpur, Malaysia, 2020, DOI:10.1109/SAS48726.2020.9220053</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/SAS48726.2020.9220017" target="_blank">Cloud based Low-Power Long-Range IoT Network for Soil Moisture Monitoring in Agriculture</a></div>
+    <div class="pub-authors">Subhra Shankha Bhattacherjee, Shreeshan S., Gattu Priyanka, Akshay Ramesh Jadhav, Jana Kholova, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Sensors Applications Symposium 2020, Kuala Lumpur, Malaysia, 2020, DOI:10.1109/SAS48726.2020.9220017</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/GUCON48875.2020.9231067" target="_blank">Comparative Run Time Analysis of LiDAR Point Cloud Processing with GPU and CPU</a></div>
+    <div class="pub-authors">Bhaskar Anand, Anuj G. Patil, Mrinal Senapati, Vivek Barsaiyan, Rajalakshmi P</div>
+    <div class="pub-meta">2020 IEEE International Conference on Computing, Power and Communication Technologies (GUCON), pp. 650-654, October 2020, DOI:10.1109/GUCON48875.2020.9231067</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/SAS48726.2020.9220016" target="_blank">CIG based Stress Identification Method for Maize Crop using UAV based Remote Sensing</a></div>
+    <div class="pub-authors">Ajay Kumar, Mahesh Taparia, Wei Guo, Balaji Naik B, Balram Marathi, U.B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Sensors Applications Symposium (IEEE SAS 2020), Kuala Lumpur, Malaysia, 2020, DOI:10.1109/SAS48726.2020.9220016</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT48130.2020.9221082" target="_blank">Enhanced LoRa Data Rate through PATCH</a></div>
+    <div class="pub-authors">Akshay Ramesh Jadhav, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE World Forum on Internet of Things (WF-IoT 2020), New Orleans, USA, 2020, DOI:10.1109/WF-IoT48130.2020.9221082</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1016/j.jcs.2020.103037" target="_blank">Discrimination of Filled and Unfilled Grains of Rice Panicles using Thermal and RGB Images</a></div>
+    <div class="pub-authors">Ajay Kumar, Mahesh Taparia, Madapu Amarlingam, Balram M., U.B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">Journal of Cereal Science, vol. 95, pp. 103037, 2020, DOI:10.1016/j.jcs.2020.103037</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/TGCN.2020.2966798" target="_blank">A Novel Low-complexity Compressed Data Aggregation Method for Energy-constrained IoT Networks</a></div>
+    <div class="pub-authors">M. Amarlingam, K V V Durga Prasad, S. S. Channappayya, C. S. Sastry, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Transactions on Green Communications and Networking, Vol. 4, no. 3, pp. 717-730, September 2020, DOI:10.1109/TGCN.2020.2966798</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/SAS48726.2020.9220053" target="_blank">Coarse Object Tracking Technique for Point Clouds</a></div>
+    <div class="pub-authors">Anjani Josyula, Bhaskar Anand, Vivek Barsaiyan, Mrinal Senapati, Rajalakshmi P</div>
+    <div class="pub-meta">2020 IEEE Sensors Applications Symposium (SAS), Kuala Lumpur, Malaysia, 2020, pp. 1-5, DOI:10.1109/SAS48726.2020.9220053</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/GUCON48875.2020.9231195" target="_blank">An Experimental Analysis of Various Multi-channel LiDAR Systems</a></div>
+    <div class="pub-authors">Bhaskar Anand, Vivek Barsaiyan, Mrinal Senapati, Rajalakshmi P</div>
+    <div class="pub-meta">2020 IEEE International Conference on Computing, Power and Communication Technologies (GUCON), pp. 644-649, October 2020, DOI:10.1109/GUCON48875.2020.9231195</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IGARSS39084.2020.9323266" target="_blank">UAV Based Remote Sensing for Tassel Detection and Growth Stage Estimation of Maize Crop using F-RCNN</a></div>
+    <div class="pub-authors">Ajay Kumar, M. Taparia, W. Guo, B. Naik, U.B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">CVPPP 2019, Long Beach, CA, 17 June 2019, DOI:10.1109/IGARSS39084.2020.9323266</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/EMBC.2019.8857393" target="_blank">A Novel Feature Extraction Framework for Four Class Motor Imagery Classification Using Log Determinant Regularized Riemannian Manifold</a></div>
+    <div class="pub-authors">Jagadish Bandaru, Rajalakshmi P</div>
+    <div class="pub-meta">41st Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC), Berlin, Germany, 2019, DOI:10.1109/EMBC.2019.8857393</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ANTS47819.2019.9118145" target="_blank">A Novel PHY Layer Approach for Enhanced Data Rate in LoRa using Adaptive Symbol Periods</a></div>
+    <div class="pub-authors">Akshay Ramesh Jadhav, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE International Conference on Advanced Networks and Telecommunications Systems (IEEE ANTS 2019), Goa, India, 2019, DOI:10.1109/ANTS47819.2019.9118145</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT.2019.8767283" target="_blank">A Novel Web Application Framework for Ubiquitous Classification of Fatty Liver Using Ultrasound Images</a></div>
+    <div class="pub-authors">D Santhosh Reddy, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 5th World Forum on Internet of Things (WF-IoT), 15-18 April 2019, DOI:10.1109/WF-IoT.2019.8767283</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT.2019.8767255" target="_blank">Fast Object Segmentation Pipeline for Point Clouds Using Robot Operating System</a></div>
+    <div class="pub-authors">Anjani Josyula, Bhaskar Anand, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 5th World Forum on Internet of Things, 15-18 April 2019, DOI:10.1109/WF-IoT.2019.8767255</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT.2019.8767173" target="_blank">Emotion Detection IoT enabled Edge-node for Citizen Security</a></div>
+    <div class="pub-authors">Subhra Shankha Bhattacherjee, Sanju Kumar N. T., Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 5th World Forum on Internet of Things (WF-IoT), April 2019, DOI:10.1109/WF-IoT.2019.8767173</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/VTCSpring.2019.8746417" target="_blank">Real Time LiDAR Point Cloud Compression And Transmission For Intelligent Transportation System</a></div>
+    <div class="pub-authors">Bhaskar Anand, Vivek Barsaiyan, Mrinal Senapati, Rajalakshmi P</div>
+    <div class="pub-meta">1st International Workshop on Internet of Autonomous Vehicles (INAVEC) with VTC2019, 28 April-1 May 2019, DOI:10.1109/VTCSpring.2019.8746417</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">AI Based High Throughput Crop Phenotyping using Drone and Static Images</div>
+    <div class="pub-authors">Sai Vikas Desai, Ajay Kumar, Mahesh Taparia, Vineeth N Balasubramanian, U. B. Desai, Wei Guo, Rajalakshmi P</div>
+    <div class="pub-meta">Workshop on AI and Its Impact on Society in Developing Nations, AAAI Chapter India, Hyderabad, India, 21 Dec 2018</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Automated Counting of Filled and Unfilled Spikelets of Aerobic Rice Using Blue Channel Discrimination</div>
+    <div class="pub-authors">Kumar, R. Bharath, M. Taparia, B. Marathi, U.B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">AFITA/WCCA, Bombay, Oct 24-26 2018</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">A Threshold Based Segmentation Method For Estimating Canopy Coverage of Crop</div>
+    <div class="pub-authors">M. Taparia, A. Kumar, B. Marathi, U.B Desai, Rajalakshmi P</div>
+    <div class="pub-meta">AFITA/WCCA, Bombay, Oct 24-26 2018</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">AI-Based High Throughput Crop Phenotyping using Drone and Static Images</div>
+    <div class="pub-authors">Sai Vikas Desai, Ajay Kumar, Mahesh Taparia, Vineeth N Balasubramanian, U. B. Desai, Wei Guo, Rajalakshmi P</div>
+    <div class="pub-meta">Workshop on AI and Its Impact on Society in Developing Nations, AAAI Chapter India, Hyderabad, India, 21 Dec 2018</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/EMBC.2018.8512343" target="_blank">Compact and Programmable Ultrasound Front-End Processing Module for Research Activities</a></div>
+    <div class="pub-authors">R. Bharath, P. Kumar, D. S. Reddy, Rajalakshmi P</div>
+    <div class="pub-meta">40th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC), Honolulu, HI, pp. 921-924, 18-21 July 2018, DOI:10.1109/EMBC.2018.8512343</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/NCC.2018.8599944" target="_blank">Improved Energy Efficient Architecture for Wireless Sensor Networks with Mobile Sinks</a></div>
+    <div class="pub-authors">P. Lingala, S. Heble, Rajalakshmi P</div>
+    <div class="pub-meta">2018 Twenty Fourth National Conference on Communications (NCC), Hyderabad, 2018, pp. 1-6, DOI:10.1109/NCC.2018.8599944</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2018.8531118" target="_blank">A Novel Computer-Aided Diagnosis Framework Using Deep Learning for Classification of Fatty Liver Disease in Ultrasound Imaging</a></div>
+    <div class="pub-authors">D Santhosh Reddy, Ramkrishna Bharath, Rajalakshmi P</div>
+    <div class="pub-meta">20th International Conference on E-health Networking, Application & Services (Healthcomm 18), Ostrava, Czech Republic, September 2018, DOI:10.1109/HealthCom.2018.8531118</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2018.8531193" target="_blank">Classification of Nonalcoholic Fatty Liver Texture Using Convolution Neural Networks</a></div>
+    <div class="pub-authors">D Santhosh Reddy, Ramkrishna Bharath, Rajalakshmi P</div>
+    <div class="pub-meta">20th International Conference on E-health Networking, Application & Services (Healthcomm 18), Ostrava, Czech Republic, September 2018, DOI:10.1109/HealthCom.2018.8531193</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2018.8531086" target="_blank">A Novel Classification Framework for EEG Based Four Class Motor Imagery Using Kullback-Leibler Regularized Riemannian Manifold</a></div>
+    <div class="pub-authors">P. K. Mishra, B. Jagadish, M. P. R. S. Kiran, D Santhosh Reddy, Rajalakshmi P</div>
+    <div class="pub-meta">20th International Conference on E-health Networking, Application & Services (Healthcomm 18), Ostrava, Czech Republic, September 2018, DOI:10.1109/HealthCom.2018.8531086</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Improved Energy-Efficient Architecture for Wireless Sensor Networks with Mobile Sinks</div>
+    <div class="pub-authors">Prashanth Lingala, Soumil K Heble, Rajalakshmi P</div>
+    <div class="pub-meta">NCC-2018, Indian Institute of Technology Hyderabad, India, Feb. 2018</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT.2018.8355188" target="_blank">A Novel System Architecture for Real-time, Robust and Accurate Step Detection for PDR Based Indoor Localization</a></div>
+    <div class="pub-authors">M.P.R. Sai Kiran, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 4th World Forum on Internet of Things (WF-IoT), Feb. 2018, DOI:10.1109/WF-IoT.2018.8355188</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT.2018.8355140" target="_blank">Energy Efficient Wireless Sensor Networks Utilizing Adaptive Dictionary in Compressed Sensing</a></div>
+    <div class="pub-authors">Amarlingam M, Pradeep Kumar Mishra, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 4th World Forum on Internet of Things (WF-IoT), Feb. 2018, DOI:10.1109/WF-IoT.2018.8355140</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT.2018.8355211" target="_blank">Exploring Cyclic Prefix for Secret Data Transmission over LTE Networks</a></div>
+    <div class="pub-authors">K. Nain, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 4th World Forum on Internet of Things (WF-IoT), Feb. 2018, DOI:10.1109/WF-IoT.2018.8355211</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT.2018.8355152" target="_blank">A Low Power IoT Network for Smart Agriculture</a></div>
+    <div class="pub-authors">Soumil Heble, Ajay Kumar, K.V.V Durga Prasad, Soumya Samirana, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 4th World Forum on Internet of Things (WF-IoT), Feb. 2018, DOI:10.1109/WF-IoT.2018.8355152</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT.2018.8355197" target="_blank">WebRTC Based Invariant Scattering Convolution Network for Automated Validation of Ultrasonic Videos for IoT Enabled Tele-Sonography</a></div>
+    <div class="pub-authors">R. Bharath, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 4th World Forum on Internet of Things (WF-IoT), Feb. 2018, DOI:10.1109/WF-IoT.2018.8355197</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2017.8210814" target="_blank">A Novel System Architecture for Brain Controlled IoT Enabled Environments</a></div>
+    <div class="pub-authors">Jagadish B, M.P.R.S. Sai Kiran, Rajalakshmi P</div>
+    <div class="pub-meta">19th International Conference on E-health Networking, Application & Services (Healthcomm 17), Dalian, China, October 2017, DOI:10.1109/HealthCom.2017.8210814</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2017.8210802" target="_blank">Subjective Liver Ultrasound Video Quality Assessment of Internet based Video Phone Services for Real-Time Telesonography</a></div>
+    <div class="pub-authors">R. Bharath, Uday B Desai, Rajalakshmi P</div>
+    <div class="pub-meta">19th International Conference on E-health Networking, Application & Services (Healthcomm 17), Dalian, China, October 2017, DOI:10.1109/HealthCom.2017.8210802</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/TENCONSpring.2017.8070096" target="_blank">IoT Enabled Smart and Secure Power Monitor</a></div>
+    <div class="pub-authors">Akshay Ramesh Jadhav, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE TenSymp 2017, Cochin, India, 14th-16th July 2017, DOI:10.1109/TENCONSpring.2017.8070096</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/TENCONSpring.2017.8070094" target="_blank">Random Node Sampling Approach for Energy Efficient Data Gathering in Wireless Sensor Networks</a></div>
+    <div class="pub-authors">Ajay Kumar, Amarlingam M, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE TenSymp 2017, Cochin, India, 14th-16th July 2017, DOI:10.1109/TENCONSpring.2017.8070094</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/EMBC.2017.8037239" target="_blank">Deep Scattering Convolution Network Based Features for Ultrasonic Fatty Liver Tissue Characterization</a></div>
+    <div class="pub-authors">R. Bharath, Rajalakshmi P</div>
+    <div class="pub-meta">39th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC 2017), Jeju Island, Korea, 11-14 July 2017, DOI:10.1109/EMBC.2017.8037239</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Novel System Architecture for Low Complex DWT Based Eye Blink Identification for Controlling IoT Environments</div>
+    <div class="pub-authors">Jagadish B, M P R Sai Kiran, Rajalakshmi P</div>
+    <div class="pub-meta">39th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC 2017), Jeju Island, Korea, 11-14 July 2017</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/EMBC.2017.8037804" target="_blank">Smartphone Based Automatic Organ Validation in Ultrasound Video</a></div>
+    <div class="pub-authors">Pallavi V, R Bharath, Rajalakshmi P</div>
+    <div class="pub-meta">39th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC 2017), Jeju Island, Korea, 11-14 July 2017, DOI:10.1109/EMBC.2017.8037804</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT.2016.7845486" target="_blank">A Reliable Covert Channel over IEEE 802.15.4 using Steganography</a></div>
+    <div class="pub-authors">K. Nain, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 3rd World Forum on Internet of Things (WF-IoT), Dec 2016, DOI:10.1109/WF-IoT.2016.7845486</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT.2016.7845488" target="_blank">Reconfigurable Dual Mode IEEE 802.15.4 Digital Baseband Receiver for Diverse IoT Applications</a></div>
+    <div class="pub-authors">Mohammed Abdullah Zubair, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 3rd World Forum on Internet of Things (WF-IoT), Dec 2016, DOI:10.1109/WF-IoT.2016.7845488</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Mobile Phone Based Acoustic Localization Using Doppler Shift for Wireless Sensor Networks</div>
+    <div class="pub-authors">Amarlingam M, Charania Navroz Firoz, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 3rd World Forum on Internet of Things (WF-IoT), Dec 2016</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT.2016.7845487" target="_blank">Compressed Sensing for Different Sensors: A Real Scenario for WSN and IoT</a></div>
+    <div class="pub-authors">Amarlingam M, Pradeep Kumar Mishra, K. V. V. Durga Prasad, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 3rd World Forum on Internet of Things (WF-IoT), Dec 2016, DOI:10.1109/WF-IoT.2016.7845487</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IECBES.2016.7843487" target="_blank">Novel Architecture for Wireless Transducer Based Ultrasound Imaging System</a></div>
+    <div class="pub-authors">R. Bharath, Punit Kumar, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE EMBS Conference of Biomedical, Engineering and Sciences (IECBES), Kuala Lumpur, Malaysia, Dec 2016, DOI:10.1109/IECBES.2016.7843487</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IECBES.2016.7843443" target="_blank">Implementation of Diagnostically Driven Compression Algorithms Via WebRTC for IoT Enabled Tele-sonography</a></div>
+    <div class="pub-authors">R. Bharath, Punit Kumar, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE EMBS Conference of Biomedical, Engineering and Sciences (IECBES), Kuala Lumpur, Malaysia, Dec 2016, DOI:10.1109/IECBES.2016.7843443</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ANTS.2016.7947794" target="_blank">Performance Analysis of IEEE 802.15.4 MAC Layer: Prospect for Multi-hop Networks</a></div>
+    <div class="pub-authors">M.P.R.Sai Kiran, Y. R. V. Prasad, V. Subrahmanyam, Rajalakshmi P</div>
+    <div class="pub-meta">10th IEEE International Conference on Advanced Networks and Telecommunications Systems (ANTS), J N AUDITORIUM, IISc, Bangalore, India, 6-9 November 2016, DOI:10.1109/ANTS.2016.7947794</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2016.7749481" target="_blank">A Simple and Accurate Matrix for Model Based Photoacoustic Imaging</a></div>
+    <div class="pub-authors">K. J. Francis, P. Mishra, A. Richhariya, S. S. Channappayya, Rajalakshmi P</div>
+    <div class="pub-meta">18th International Conference on E-health Networking, Application & Services (HealthCom), Munich, Germany, 14-17 Sept. 2016, DOI:10.1109/HealthCom.2016.7749481</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2016.7749482" target="_blank">Nonlocal Means Kernel Regression Based Despeckling of B-mode Ultrasound Images</a></div>
+    <div class="pub-authors">R. Bharath, Rajalakshmi P</div>
+    <div class="pub-meta">18th International Conference on E-health Networking, Application & Services (HealthCom), Munich, Germany, 14-17 Sept. 2016, DOI:10.1109/HealthCom.2016.7749482</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2016.7749492" target="_blank">Smartphone Based Automatic Abnormality Detection of Kidney in Ultrasound Images</a></div>
+    <div class="pub-authors">Pallavi Vaish, R. Bharath, Rajalakshmi P</div>
+    <div class="pub-meta">18th International Conference on E-health Networking, Application & Services (HealthCom), Munich, Germany, 14-17 Sept. 2016, DOI:10.1109/HealthCom.2016.7749492</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">0.8 V 450 W 2.4 GHz PLL using Back-Gate QVCO for ZigBee/BLE Standard in 0.18 m CMOS</div>
+    <div class="pub-authors">Purushothama Chary, Rizwan Shaik Peerla, Sesha Sairam, Mohd. Abdul Naseeb, Amit Acharya, Debashish Mandal, Ashudeb Dutta, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE MicroCom Conference 2016, Kolkata, India</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/VLSID.2016.81" target="_blank">A 1.5 mA, 2.4 GHz ZigBee/BLE QLMVF Front-End Receiver with Split TCAs in 180 nm CMOS</a></div>
+    <div class="pub-authors">Sesha Sairam, P. Purushothama Chary, Rizwan Shaik Peerla, Mohd. Abdul Naseeb, Amit Acharya, Debashish Mandal, Ashudeb Dutta, Rajalakshmi P</div>
+    <div class="pub-meta">29th International Conference on VLSI Design and 2016 15th International Conference on Embedded Systems (VLSID), Kolkata, India, 4-8 Jan. 2016, pp. 207-212, DOI:10.1109/VLSID.2016.81</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IOT.2015.7389132" target="_blank">Mobile Phone Based Acoustic Localization for Wireless Sensor Networks</a></div>
+    <div class="pub-authors">Amarlingam M, Masaya Yoshida, Kiyohito Yoshihara, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 2nd World Forum on Internet of Things (WF-IoT), Milan, 14-16 Dec 2015, pp. 658-662, DOI:10.1109/WF-IOT.2015.7389132</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IOT.2015.7389052" target="_blank">Performance Analysis of Hybrid Multiple Radio IoT Architecture for Ubiquitous Connectivity</a></div>
+    <div class="pub-authors">Y. SivaKrishna, Jagadish Bandaru, Ajay Kumar, M. P. R. Sai Kiran, M. A. Zubair, U. B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 2nd World Forum on Internet of Things (WF-IoT), Milan, 14-16 Dec 2015, pp. 198-203, DOI:10.1109/WF-IOT.2015.7389052</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Antenna Radiation Pattern Based 3D Localization Technique</div>
+    <div class="pub-authors">Amarlingam M, Vinod Kumar Netad, Masaya Yoshida, Kiyohito Yoshihara, Rajalakshmi P</div>
+    <div class="pub-meta">18th International Symposium on Wireless Personal Multimedia Communications (WPMC 15), Dec 2015</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Analytical Model of Relay Node Integrating IEEE 802.15.4 MAC and Energy Conserving State Behaviour</div>
+    <div class="pub-authors">Raja Vara Prasad Y, M.P.R.S Kiran, Rajalakshmi P</div>
+    <div class="pub-meta">18th International Symposium on Wireless Personal Multimedia Communications (WPMC 15), Dec 2015</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Selective Sensing Framework for Mobile Phone Sensing Networks</div>
+    <div class="pub-authors">Thejaswini M, U. B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">18th International Symposium on Wireless Personal Multimedia Communications (WPMC 15), Dec 2015</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Minimal Error IEEE 802.15.4 Communication Module for Heart Monitoring Data Transmission in IoT</div>
+    <div class="pub-authors">V. Subrahmanyam, Mohammed Abdullah Zubair, Ajay Kumar, Rajalakshmi P</div>
+    <div class="pub-meta">18th International Symposium on Wireless Personal Multimedia Communications (WPMC 15), Dec 2015</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/PrimeAsia.2015.7450462" target="_blank">1.2 mW 2.4 GHz PLL for ZigBee and BLE Standard in Single-Well 0.18m CMOS with Efficient Divider Architecture</a></div>
+    <div class="pub-authors">P. Purushothama Chary, Rizwan Shaik Peerla, Sesha Sairam, Mohd. Abdul Naseeb, Amit Acharya, Debashish Mandal, Ashudeb Dutta, Rajalakshmi P</div>
+    <div class="pub-meta">2015 IEEE Asia Pacific Conference on Postgraduate Research in Microelectronics and Electronics (PrimeAsia), Hyderabad, 27-29 Nov. 2015, pp. 17-20, DOI:10.1109/PrimeAsia.2015.7450462</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2015.7454558" target="_blank">Compressive Sensing Ultrasound Beamformed Imaging In Time and Frequency Domain</a></div>
+    <div class="pub-authors">Pradeep Kumar Mishra, R Bharath, Uday B Desai, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Healthcom-2015 17th International Conference on E-health Networking, Application & Services (HealthCom), Boston, MA, 14-17 Oct. 2015, pp. 523-527, DOI:10.1109/HealthCom.2015.7454558</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2015.7454509" target="_blank">Multi-level Classification: A Generic Classification Method for Medical Datasets</a></div>
+    <div class="pub-authors">Srinivas, R. Bharath, C Krishna Mohan, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Healthcom-2015 17th International Conference on E-health Networking, Application & Services (HealthCom), Boston, MA, 14-17 Oct. 2015, pp. 262-267, DOI:10.1109/HealthCom.2015.7454509</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2015.7454500" target="_blank">Portable Ultrasound Scanner for Remote Diagnosis</a></div>
+    <div class="pub-authors">R Bharath, Dusa Chandrashekar, Vivek Akkala, Divya Krishna, Harsha Ponduri, Uday B Desai, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE Healthcom-2015 17th International Conference on E-health Networking, Application & Services (HealthCom), Boston, MA, 14-17 Oct. 2015, pp. 211-216, DOI:10.1109/HealthCom.2015.7454500</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICIP.2015.7351053" target="_blank">Distributed Compressed Sensing for Photoacoustic Imaging</a></div>
+    <div class="pub-authors">Francis. K.J, Channappayya S, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE International Conference on Image Processing (ICIP), Quebec City, QC, Canada, 27-30 Sep 2015, pp. 1513-1517, DOI:10.1109/ICIP.2015.7351053</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IWCMC.2015.7289132" target="_blank">3D Localization Technique with Mobile Robot for Improving Operability of Remote-Control Devices</a></div>
+    <div class="pub-authors">Masaya Yoshida, Kiyohito Yoshihara, Amarlingam M, R Vinod Kumar Netad, Rajalakshmi P</div>
+    <div class="pub-meta">International Wireless Communications & Mobile Computing Conference (IWCMC), Croatia, Dubrovnik, 24-28 August 2015, pp. 485-490, DOI:10.1109/IWCMC.2015.7289132</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/EMBC.2015.7318476" target="_blank">A Reconfigurable Medically Cohesive Biomedical Front-End with ΣΔ ADC in 0.18µm CMOS</a></div>
+    <div class="pub-authors">Pankaj Kumar Jha, Pravanjan Patra, Jairaj Naik, A. Acharyya, Shiv Govind Singh, Ashudeb Dutta, Rajalakshmi P</div>
+    <div class="pub-meta">Engineering in Medicine and Biology Society (EMBC), 2015 37th Annual International Conference of the IEEE, Milan, 25-29 Aug. 2015, pp. 833-836</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/COMPSAC.2015.260" target="_blank">Real Time Power Capping with Configurable Circuit Breaker to Optimize Local Electricity Generation</a></div>
+    <div class="pub-authors">Hiroyuki Ikegami, Raja Vara Prasad Y, Hiroshi Esaki, Rajalakshmi P</div>
+    <div class="pub-meta">Computer Software and Applications Conference (COMPSAC), 2015 IEEE 39th Annual, Taichung, Taiwan, 1-5 July 2015, DOI:10.1109/COMPSAC.2015.260</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/COMPSAC.2015.264" target="_blank">Neural Network Based Short Term Forecasting Engine to Optimize Energy and Big Data Storage Resources of Wireless Sensor Networks</a></div>
+    <div class="pub-authors">Raja Vara Prasad Y, Rajalakshmi P</div>
+    <div class="pub-meta">Computer Software and Applications Conference (COMPSAC), 2015 IEEE 39th Annual, Taichung, Taiwan, 1-5 July 2015, pp. 511-516, DOI:10.1109/COMPSAC.2015.264</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">A 2µW Biomedical Frontend with ΣΔ ADC for Self-Powered U-Healthcare Devices in 0.18µm CMOS Technology</div>
+    <div class="pub-authors">Pankaj Kumar Jha, Pravanjan Patra, Jairaj Naik, Ashudeb Dutta, A. Acharyya, Shiv Govind Singh, Rajalakshmi P</div>
+    <div class="pub-meta">New Circuits and Systems Conference (NEWCAS), 2015 IEEE 13th International, Grenoble, France, 7-10 June 2015, pp. 1-4</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/TENSYMP.2015.27" target="_blank">IEEE 802.15.4-PHY Packet Detection and Transmission System With Differential Encoding For Low Power IoT Networks</a></div>
+    <div class="pub-authors">Krishna, Y.S, Subrahmanyam, V. Zubair, M.A, Rajalakshmi P</div>
+    <div class="pub-meta">Region 10 Symposium (TENSYMP), 2015 IEEE, Ahmedabad, 13-15 May 2015, pp. 1-4, DOI:10.1109/TENSYMP.2015.27</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/TENSYMP.2015.28" target="_blank">Real Time Net Zero Energy Building Energy Manager with Heterogeneous Wireless Ad hoc Network Adaptable to IoT Architectures</a></div>
+    <div class="pub-authors">Raja Vara Prasad Y, Shubham Goel, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE International Conference TENSYMP 2015, Ahmedabad, India, 13-15 May 2015, pp. 29-32, DOI:10.1109/TENSYMP.2015.28</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/NCC.2015.7084842" target="_blank">Sparse Land Model for Speckle Suppression of B-mode Ultrasound Images</a></div>
+    <div class="pub-authors">M. Srinivas, R. Bharath, C Krishna Mohan, Rajalakshmi P</div>
+    <div class="pub-meta">Twenty First National Conference on Communications (NCC), Mumbai, India, Feb. 27 2015-March 1 2015, DOI:10.1109/NCC.2015.7084842</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/VLSID.2015.42" target="_blank">Integrated 16-Channel Transmit and Receive Beamforming ASIC for Ultrasound Imaging</a></div>
+    <div class="pub-authors">Dusa Chandrashekar, Kalalii. S, Rao, Omkesh, Rajalakshmi P</div>
+    <div class="pub-meta">2015 28th International Conference on VLSI Design (VLSID), Bangalore, India, 3-7 Jan. 2015, pp. 215-220, DOI:10.1109/VLSID.2015.42</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ANTS.2014.7057266" target="_blank">Novel Energy Model to Analyze the Effect of MAC and Network Parameters on Asynchronous IEEE 802.15.4 Multi-hop Wireless Networks Lifetime</a></div>
+    <div class="pub-authors">Raja Vara Prasad Y, Rajalakshmi P</div>
+    <div class="pub-meta">2014 IEEE International Conference on Advanced Networks and Telecommunications Systems (ANTS), New Delhi, India, 14-17 Dec. 2014, pp. 1-6, DOI:10.1109/ANTS.2014.7057266</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IECBES.2014.7047561" target="_blank">FPGA Based Implementation of Low Complex Adaptive Speckle Suppression Filter for B-mode Ultrasound Images</a></div>
+    <div class="pub-authors">R Bharath, Vivek.A, Punitkumar, Rajalakshmi P</div>
+    <div class="pub-meta">Biomedical Engineering and Sciences (IECBES), 2014 IEEE Conference on, Kuala Lumpur, 8-10 Dec. 2014, pp. 545-550, DOI:10.1109/IECBES.2014.7047561</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/IECBES.2014.7047584" target="_blank">Compression Techniques for IoT Enabled Handheld Ultrasound Imaging System</a></div>
+    <div class="pub-authors">Akkala, V, Bharath, R, Kumar, P, Rajalakshmi P</div>
+    <div class="pub-meta">Biomedical Engineering and Sciences (IECBES), 2014 IEEE Conference on, Kuala Lumpur, 8-10 Dec. 2014, pp. 648-652, DOI:10.1109/IECBES.2014.7047584</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ISED.2014.36" target="_blank">System Architecture for Smart Ubiquitous Health Monitoring System With Area Optimization in Multiple On-chip Radios Scenario</a></div>
+    <div class="pub-authors">M. P. R. Sai Kiran, Amit Acharyya, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE International Symposium on Electronic System Design (ISED 2014), Karnataka, India, 15-17 December 2014, pp. 140-144, DOI:10.1109/ISED.2014.36</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/MedCom.2014.7005565" target="_blank">Wavelet Domain Frequency Interpolation for Photoacoustic Tomography</a></div>
+    <div class="pub-authors">Francis, K.J, Channappayya S, Rajalakshmi P</div>
+    <div class="pub-meta">Medical Imaging, m-Health and Emerging Communication Systems (MedCom), 2014 International Conference, Greater Noida, 7-8 Nov. 2014, pp. 6-9, DOI:10.1109/MedCom.2014.7005565</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2014.7001851" target="_blank">FPGA Based Preliminary CAD for Kidney on IoT Enabled Portable Ultrasound Imaging System</a></div>
+    <div class="pub-authors">Krishna, K.D, Akkala, V, Bharath R, Mohammed, A.M, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 16th International Conference on e-Health Networking, Applications and Services - Healthcom, Brazil, 15-18 Oct. 2014, pp. 257-261, DOI:10.1109/HealthCom.2014.7001851</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2014.7001850" target="_blank">Low Complex, Programmable FPGA Based 8-Channel Ultrasound Transmitter for Medical Imaging Researches</a></div>
+    <div class="pub-authors">Dusa Chandrashekar, Puli, S. Desai, U.B. Merchant, S.N., Rajalakshmi P</div>
+    <div class="pub-meta">IEEE 16th International Conference on e-Health Networking, Applications and Services - Healthcom, Natal, Brazil, 15-18 Oct. 2014, pp. 252-256, DOI:10.1109/HealthCom.2014.7001850</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/LCN.2014.6925782" target="_blank">Bi-Scale Temporal Sampling Strategy for Traffic-Induced Pollution Data with Wireless Sensor Networks</a></div>
+    <div class="pub-authors">Venus S, Manik, Steve Hailes, Eliane B, U B Desai, Rajalakshmi P</div>
+    <div class="pub-meta">39th Annual IEEE Conference on Local Computer Networks (LCN) 2014, Florida, USA, 26-29 Oct 2014, pp. 279-287, DOI:10.1109/LCN.2014.6925782</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WPMC.2014.7014850" target="_blank">Centroid Based 3D Localization Technique Using RSSI With a Mobile Robot</a></div>
+    <div class="pub-authors">Amarlingam M, Vinod Kumar Netad, Masaya Yoshida, Kiyohito Yoshihara, Rajalakshmi P</div>
+    <div class="pub-meta">2014 International Symposium on Wireless Personal Multimedia Communications (WPMC), Sydney, 7-10 Sep. 2014, pp. 391-395, DOI:10.1109/WPMC.2014.7014850</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WPMC.2014.7014837" target="_blank">IoT Enabled Communication Device with Mixer Less Low Complex QPSK Based Transmitter Architecture for Low Frequency Applications</a></div>
+    <div class="pub-authors">M P R Sai Kiran, Jagadish B, Rajalakshmi P</div>
+    <div class="pub-meta">2014 International Symposium on Wireless Personal Multimedia Communications (WPMC), Sydney, Australia, 7-10 September 2014, pp. 316-321, DOI:10.1109/WPMC.2014.7014837</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">An On-Chip Robust Real-Time Automated Non-Invasive Cardiac Remote Health Monitoring Methodology</div>
+    <div class="pub-authors">Naresh Vemishetty, Chivukula. K. B, Sandeep Tiwari, Kiran, M.P.R.S, Bastin Joseph, Agathya Jagirdar, Jagadish Bandaru, Venkateswara Chowdary, Siva Krishna Y, Acharyya, A, Puddu, P.E, Rajalakshmi P</div>
+    <div class="pub-meta">41st Annual International Conference of Computing in Cardiology 2014, Cambridge, MA, USA, 7-10 September 2014, pp. 249-252</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICACCI.2014.6968555" target="_blank">Automatic Organ Validation of B-mode Ultrasound Images to Cloud</a></div>
+    <div class="pub-authors">R. Bharath, Rajalakshmi P</div>
+    <div class="pub-meta">Advances in Computing, Communications and Informatics (ICACCI), International Conference on, New Delhi, India, 24-27 Sep. 2014, pp. 479-482, DOI:10.1109/ICACCI.2014.6968555</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/EMBC.2014.6944538" target="_blank">Context Predictor Based Sparse Sensing Technique and Smart Transmission Architecture for IoT Enabled Remote Health Monitoring Applications</a></div>
+    <div class="pub-authors">M P R Sai Kiran, Amit Acharyya, Rajalakshmi P</div>
+    <div class="pub-meta">36th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC 2014), Chicago, 26-30 August 2014, pp. 4151-4154, DOI:10.1109/EMBC.2014.6944538</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/EMBC.2014.6944582" target="_blank">A Low Complexity On-Chip ECG Data Compression Methodology Targeting Remote Health-Care Applications</a></div>
+    <div class="pub-authors">Bastin Joseph, Amit Acharyya, Rajalakshmi P</div>
+    <div class="pub-meta">36th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC 2014), Chicago, 26-30 August 2014, pp. 5944-5947, DOI:10.1109/EMBC.2014.6944582</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/BRC.2014.6880981" target="_blank">Fast Region of Interest Detection for Fetal Genital Organs in B-mode Ultrasound Images</a></div>
+    <div class="pub-authors">R. Bharath, Rajalakshmi P</div>
+    <div class="pub-meta">5th ISSNIP-IEEE Biosignals and Biorobotics Conference: Biosignals and Robotics for Better and Safer Living (BRC), Salvador, Brazil, 26-28 May 2014, pp. 1-5, DOI:10.1109/BRC.2014.6880981</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/BRC.2014.6880980" target="_blank">FPGA Based Ultrasound Backend System with Image Enhancement Technique</a></div>
+    <div class="pub-authors">Akkala, V, Kumar, P, Desai, U.B, Rajalakshmi P</div>
+    <div class="pub-meta">5th ISSNIP-IEEE Biosignals and Biorobotics Conference: Biosignals and Robotics for Better and Safer Living (BRC), Salvador, Brazil, 26-28 May 2014, pp. 1-5, DOI:10.1109/BRC.2014.6880980</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IOT.2014.6803161" target="_blank">Analytical Model of Adaptive CSMA/CA MAC for Reliable and Timely Clustered Wireless Multi-hop Communication</a></div>
+    <div class="pub-authors">Raja Vara Prasad Y, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE World Forum on Internet of Things, WF-IoT 2014, Seoul, Korea, 6-8 March 2014, pp. 212-217, DOI:10.1109/WF-IOT.2014.6803161</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IOT.2014.6803168" target="_blank">Adaptive Rule Engine Based IoT Enabled Remote Health Care Data Acquisition and Smart Transmission System</a></div>
+    <div class="pub-authors">M.P.R. Sai Kiran, K. Bharadwaj, A. Acharyya, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE World Forum on Internet of Things, WF-IoT 2014, Seoul, South Korea, 6-8 March 2014, pp. 253-258, DOI:10.1109/WF-IOT.2014.6803168</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IOT.2014.6803209" target="_blank">Deployment Adviser Tool for Wireless Sensor Networks</a></div>
+    <div class="pub-authors">Amarlingam M, Adityan I, Yasutaka Nishimura, Masaya Yoshida, Kiyohito Yoshihara, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE World Forum on Internet of Things, WF-IoT 2014, Seoul, Korea, 6-8 March 2014, pp. 452-457, DOI:10.1109/WF-IOT.2014.6803209</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IOT.2014.6803217" target="_blank">Novel Sampling Algorithm for Levy-Walk Based Mobile Phone Sensing</a></div>
+    <div class="pub-authors">Thejaswini M, U. B. Desai, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE World Forum on Internet of Things, WF-IoT 2014, Seoul, South Korea, 6-8 March 2014, pp. 496-501, DOI:10.1109/WF-IOT.2014.6803217</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICICS.2013.6782951" target="_blank">Levy Walk Based Multi-Hop Data Forwarding Protocol for Opportunistic Mobile Phone Sensor Networks</a></div>
+    <div class="pub-authors">Thejaswini M, U B Desai, Rajalakshmi P</div>
+    <div class="pub-meta">International Conference on Information, Communication and Signal Processing (ICICS), Taiwan, 10-13 December 2013, pp. 1-5, DOI:10.1109/ICICS.2013.6782951</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/HealthCom.2013.6720673" target="_blank">Accurate and Reliable 3-Lead to 12-Lead ECG Reconstruction Methodology for Remote Health Monitoring Applications</a></div>
+    <div class="pub-authors">S. Maheshwari, A. Acharyya, P. E. Puddu, M. Schiariti, Rajalakshmi P</div>
+    <div class="pub-meta">15th IEEE International Conference on e-Health Networking, Applications and Services (Healthcom, 2013), Portugal, 9-12 October 2013, pp. 233-237, DOI:10.1109/HealthCom.2013.6720673</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICACCI.2013.6637369" target="_blank">EEDF-MAC: An Energy Efficient MAC Protocol for Wireless Sensor Networks</a></div>
+    <div class="pub-authors">Maaz Mohiuddin, T. Adityan, Rajalakshmi P</div>
+    <div class="pub-meta">Advanced in Computing, Communications and Informatics (ICACCI), 2013 International Conference on, India, August 2013, pp. 1323-1329, DOI:10.1109/ICACCI.2013.6637369</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICACCI.2013.6637280" target="_blank">CR Based WSAN for Field Area Network in Smart Grid</a></div>
+    <div class="pub-authors">Mirza Sami Baig, Rajalakshmi P</div>
+    <div class="pub-meta">Advanced in Computing, Communications and Informatics (ICACCI), 2013 International Conference on, India, August 2013, pp. 811-816, DOI:10.1109/ICACCI.2013.6637280</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WF-IoT.2014.6803209" target="_blank">Deployment Advisor Tool for Wireless Sensor Networks</a></div>
+    <div class="pub-authors">Adithyan R, Yasutaka Nishimura, Kiyohito Yoshihara, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE International Conference on Computer Communication Networks (ICCCN 2013), Bahamas, August 2013, DOI:10.1109/WF-IoT.2014.6803209</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WMNC.2013.6548976" target="_blank">Context Aware Building Energy Management System with Heterogeneous Wireless Network Architecture</a></div>
+    <div class="pub-authors">Raja Vara Prasad Y, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE/IFIP Wireless and Mobile Networking Conference (WMNC), Dubai, 23-25 April 2013, DOI:10.1109/WMNC.2013.6548976</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WAINA.2013.181" target="_blank">Effect of Relay Nodes on End-to-End Delay in Multi-Hop Wireless Ad Hoc Networks</a></div>
+    <div class="pub-authors">Raja Vara Prasad Y, Rajalakshmi P</div>
+    <div class="pub-meta">27th International Conference on Advanced Information Networking and Applications (AINA-2013), Barcelona, Spain, 25-28 March 2013, DOI:10.1109/WAINA.2013.181</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/TENCON.2012.6412215" target="_blank">Design of Feature Extraction Circuit for Speech Recognition Applications</a></div>
+    <div class="pub-authors">Saambavi, SSSP Rao, Rajalakshmi P</div>
+    <div class="pub-meta">IEEE TENCON, Taiwan, 19-22 Nov 2012, pp. 1-5, DOI:10.1109/TENCON.2012.6412215</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/SPCOM.2012.6290024" target="_blank">Real Time Hardware Implementable Spectrum Sensor for Cognitive Radio Applications</a></div>
+    <div class="pub-authors">G V Chaitanya, U B Desai, Rajalakshmi P</div>
+    <div class="pub-meta">2012 International Conference on Signal Processing and Communications (SPCOM), Bangalore, India, 22-25 July 2012, pp. 1-5, DOI:10.1109/SPCOM.2012.6290024</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1145/2345396.2345575" target="_blank">Hard Software Codesign for AES in FPGA</a></div>
+    <div class="pub-authors">Saambavi, Rajalakshmi P</div>
+    <div class="pub-meta">ICACCI, India, 16 May 2012, DOI:10.1145/2345396.2345575</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ISSNIP.2011.6146589" target="_blank">WSN Based Power Monitoring in Smart Grids</a></div>
+    <div class="pub-authors">Raja Vara Prasad Y, Bharathi, Alok Kumar, U B Desai, Rajalakshmi P</div>
+    <div class="pub-meta">Seventh IEEE International Conference on Intelligent Sensors, Sensor Networks and Information Processing (ISSNIP), Adelaide, Australia, 6-9 Dec 2011, pp. 401-406, DOI:10.1109/ISSNIP.2011.6146589</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICISA.2011.5772355" target="_blank">On the Development of a Sensor Module for Real-Time Pollution Monitoring</a></div>
+    <div class="pub-authors">Lamling Venus Shum, Ayo Afonja, Graeme McPhillips, Russell Binion, Lawrence Cheng, Stephen Hailes, Rajalakshmi P</div>
+    <div class="pub-meta">International Conference on Information Science and Applications (ICISA) 2011, Jeju Island, 26-29 April 2011, pp. 1-9, DOI:10.1109/ICISA.2011.5772355</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/WOCN.2008.4542490" target="_blank">Load Balanced Routing to Enhance the Performance of Optical Backbone Networks</a></div>
+    <div class="pub-authors">Ashok Jhunjhunwala, Rajalakshmi P</div>
+    <div class="pub-meta">Proceeding of IEEE International Conference on Wireless and Optical Communications Networks, WOCN 2008, Surabaya, Indonesia, 5-7 May 2008, pp. 1-5, DOI:10.1109/WOCN.2008.4542490</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICC.2007.389" target="_blank">Analytical Model for Wavelength Convertible Optical Networks</a></div>
+    <div class="pub-authors">Ashok Jhunjhunwala, Rajalakshmi P</div>
+    <div class="pub-meta">Proceedings of IEEE International Conference on Communications, ICC 2007, Glasgow, 24-28 June 2007, pp. 2318-2323, DOI:10.1109/ICC.2007.389</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICC.2007.352" target="_blank">Analytical Tool to Achieve Wavelength Conversion Performance in No Wavelength Conversion Networks</a></div>
+    <div class="pub-authors">Ashok Jhunjhunwala, Rajalakshmi P</div>
+    <div class="pub-meta">Proceedings of IEEE International Conference on Communications, ICC 2007, Glasgow, 24-28 June 2007, pp. 2436-2441, DOI:10.1109/ICC.2007.352</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title">Wavelength Reassignment Algorithms for Optical WDM Networks</div>
+    <div class="pub-authors">Ashok Jhunjhunwala, Rajalakshmi P</div>
+    <div class="pub-meta">Proceedings of 13th National Conference on Communications, NCC 2007, India, January 2007, pp. 121-126</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICON.2006.302634" target="_blank">Reassignment Algorithms for TDM-WDM Network</a></div>
+    <div class="pub-authors">Ashok Jhunjhunwala, Rajalakshmi P</div>
+    <div class="pub-meta">14th IEEE International Conference on Networks, Photonics, Singapore, Sept 2006, pp. 1-6, DOI:10.1109/ICON.2006.302634</div>
+</div>
+
+<div class="pub-item scroll-animation">
+    <div class="pub-title"><a href="https://doi.org/10.1109/ICON.2006.302634" target="_blank">Routing Wavelength and Timeslot Reassignment Algorithms for TDM Based Optical WDM Networks - Multi Rate Traffic Demands</a></div>
+    <div class="pub-authors">Ashok Jhunjhunwala, Rajalakshmi P</div>
+    <div class="pub-meta">14th IEEE International Conference on Networks, Singapore, 2006, pp. 1-6, DOI:10.1109/ICON.2006.302634</div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all tabs and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(tc => tc.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                this.classList.add('active');
+                document.getElementById(this.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Scroll animation observer
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        };
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        
+        // Observe all scroll animation elements
+        document.querySelectorAll('.scroll-animation').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Count animation for statistics
+        function animateCount(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+
+        // Trigger count animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const journalCount = document.getElementById('journal-count');
+                    if (journalCount && !journalCount.dataset.animated) {
+                        animateCount(journalCount, 64);
+                        journalCount.dataset.animated = 'true';
+                    }
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats-bar');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+    
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    
+        // Close mobile menu when clicking on links
+        const navLinkItems = document.querySelectorAll('.nav-links a');
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+    
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

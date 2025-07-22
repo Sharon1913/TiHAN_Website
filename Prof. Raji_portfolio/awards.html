@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. P. Rajalakshmi - Awards</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d7a;
+            --primary-light: #e4e8ed;
+            --secondary: #6c757d;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --dark-gray: #495057;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 90vw;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            min-height: 100px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 44px 0;
+            min-height: 100px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-family: 'Playfair Display', serif;
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin-left: auto;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                z-index: 1000;
+                transition: var(--transition);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu {
+                display: flex;
+                z-index: 1001;
+            }
+            .mobile-menu.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .mobile-menu.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        }
+        .section {
+            padding: 4rem 2rem;
+        }
+        .card {
+            background-color: #f7fafc;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
+            border-left: 5px solid transparent;
+        }
+        .card:hover {
+            box-shadow: 0 12px 32px rgba(0, 86, 179, 0.18), 0 2px 8px rgba(0,0,0,0.10);
+            transform: translateY(-8px) scale(1.03);
+            border-left: 5px solid #0056b3;
+            background-color: #f0f6fc;
+        }
+        .btn {
+            background-color: #f6ad55;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #ed8936;
+        }
+        footer {
+            background-color: #1a202c;
+        }
+        footer a:hover {
+            color: #f6ad55;
+        }
+        .title-text {
+            color: #003d7a;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="container">
+            <a href="index.html" class="logo">Dr. <span>Rajalakshmi</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="sponsored_projects.html">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="people.html">People</a></li>
+                <li><a href="index.html#dataset">Dataset</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="index.html#social">Connect</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Awards Section -->
+    <section class="section bg-white" style="margin-top: 110px;">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold title-text mb-8">Awards & Recognition</h2>
+            <p class="text-lg text-gray-600 mb-12">Acknowledgments for research excellence and contributions in autonomous systems and wireless technologies</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card">
+                    <h3 class="text-xl font-semibold title-text">IEEE Senior Member</h3>
+                    <p class="text-gray-600 mt-2">2022</p>
+                    <p class="text-gray-600 mt-2">Recognized by IEEE for significant contributions to the field of electrical and electronics engineering.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold title-text">Best Paper Award</h3>
+                    <p class="text-gray-600 mt-2">2022</p>
+                    <p class="text-gray-600 mt-2">Awarded at the International Conference on Signal Processing and Communications (SPCOM) for innovative research in wireless communication systems.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold title-text">Women Excellence Award</h3>
+                    <p class="text-gray-600 mt-2">2021</p>
+                    <p class="text-gray-600 mt-2">Received from the Science and Engineering Research Board (SERB) for outstanding contributions by women in science and technology.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold title-text">Best Paper Award</h3>
+                    <p class="text-gray-600 mt-2">2020</p>
+                    <p class="text-gray-600 mt-2">Awarded at the IEEE International Conference on Advanced Networks and Telecommunications Systems (ANTS) for research in autonomous navigation systems.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold title-text">Young Faculty Research Excellence Award</h3>
+                    <p class="text-gray-600 mt-2">2019</p>
+                    <p class="text-gray-600 mt-2">Recognized by IIT Hyderabad for exemplary research contributions in autonomous systems and wireless technologies.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold title-text">Best Paper Award</h3>
+                    <p class="text-gray-600 mt-2">2019</p>
+                    <p class="text-gray-600 mt-2">Received at the IEEE International Conference on Communications (ICC) for advancements in IoT communication protocols.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold title-text">Young Scientist Award</h3>
+                    <p class="text-gray-600 mt-2">2018</p>
+                    <p class="text-gray-600 mt-2">Awarded by the Indian National Science Academy for innovative work in drone-based sensing technologies.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold title-text">Innovator of the Year</h3>
+                    <p class="text-gray-600 mt-2">2017</p>
+                    <p class="text-gray-600 mt-2">Recognized for pioneering research in 5G communication protocols and IoT applications.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold title-text">Best PhD Thesis Award</h3>
+                    <p class="text-gray-600 mt-2">2016</p>
+                    <p class="text-gray-600 mt-2">Received for outstanding doctoral research in wireless sensor networks, awarded by the IEEE Communications Society.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold title-text">Young Engineer Award</h3>
+                    <p class="text-gray-600 mt-2">2015</p>
+                    <p class="text-gray-600 mt-2">Conferred by the Institution of Engineers India for contributions to cyber-physical systems.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold title-text">Best Paper Award</h3>
+                    <p class="text-gray-600 mt-2">2014</p>
+                    <p class="text-gray-600 mt-2">Awarded at the International Conference on Embedded Systems (ICES) for research in real-time control systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold title-text">Contact</h3>
+                    <p class="mt-4">Department of Electrical Engineering<br>IIT Hyderabad, Kandi<br>Sangareddy, Telangana - 502285</p>
+                    <p class="mt-2">Email: [email protected]<br>Phone: +91-40-2301-6019</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold title-text">Research Areas</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li>Autonomous Navigation</li>
+                        <li>Wireless Communications</li>
+                        <li>Cyber-Physical Systems</li>
+                        <li>Sensor Networks</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold title-text">Quick Links</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="publications.html" class="hover:text-orange-400">Publications</a></li>
+                        <li><a href="projects.html" class="hover:text-orange-400">Projects</a></li>
+                        <li><a href="students.html" class="hover:text-orange-400">Students</a></li>
+                        <li><a href="collaborations.html" class="hover:text-orange-400">Collaborations</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p>© 2024 Dr. P. Rajalakshmi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add nav bar JS at the end of body -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on links
+        const navLinkItems = document.querySelectorAll('.nav-links a');
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

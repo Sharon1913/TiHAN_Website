@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses Handled | Dr. P. Rajalakshmi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d7a;
+            --primary-light: #e4e8ed;
+            --secondary: #6c757d;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --dark-gray: #495057;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            margin: 0.5rem auto 2rem auto;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--white);
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Course Categories */
+        .course-categories {
+            display: flex;
+            justify-content: center;
+            margin: 2.5rem 0 1.5rem 0;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--primary-dark);
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            padding: 10px 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Course Sections */
+        .course-section {
+            display: none;
+            animation: fadeInUp 0.7s;
+        }
+
+        .course-section.active {
+            display: block;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .course-card {
+            background: var(--white);
+            border-left: 5px solid var(--primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .course-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .course-code {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .course-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .course-type {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .course-details {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-duration {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .course-icon {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+
+        /* Lab Equipment Section */
+        .lab-equipment {
+            background: var(--white);
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .equipment-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 2px solid var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .equipment-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .equipment-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .equipment-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .equipment-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            color: var(--gray);
+        }
+
+        .equipment-list li:last-child {
+            border-bottom: none;
+        }
+
+        .equipment-list li::before {
+            content: '🔧';
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .course-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .equipment-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .category-btn {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+            
+            .course-card {
+                padding: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .course-categories {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(.4,2,.6,1);
+        }
+
+        .scroll-animation.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Dr. P. Rajalakshmi</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="sponsored_projects.html">Projects</a></li>
+                <li><a href="courses.html">Courses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h1 class="section-title scroll-animation">Courses Handled</h1>
+            <p class="section-subtitle scroll-animation">
+                Comprehensive teaching portfolio spanning autonomous systems, IoT, wireless networks, and emerging technologies
+            </p>
+
+            <!-- Stats Section -->
+            <div class="stats-section scroll-animation">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Total Courses</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Laboratory Courses</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Core Subjects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Specialized Areas</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Categories -->
+            <div class="course-categories">
+                <button class="category-btn active" data-category="autonomous">
+                    <i class="fas fa-drone"></i> Autonomous Systems
+                </button>
+                <button class="category-btn" data-category="iot">
+                    <i class="fas fa-network-wired"></i> IoT & Networks
+                </button>
+                <button class="category-btn" data-category="core">
+                    <i class="fas fa-microchip"></i> Core Electronics
+                </button>
+                <button class="category-btn" data-category="labs">
+                    <i class="fas fa-flask"></i> Laboratory Courses
+                </button>
+            </div>
+
+            <!-- Autonomous Systems Courses -->
+            <div id="autonomous" class="course-section active">
+                <div class="course-grid">
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-plane course-icon"></i>
+                        <div class="course-code">EE5163</div>
+                        <div class="course-title">Advanced Air Mobility</div>
+                        <div class="course-type">Specialized Course</div>
+                        <div class="course-details">Advanced concepts in aerial mobility and autonomous flight systems</div>
+                        <div class="course-duration">June 16-30</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-route course-icon"></i>
+                        <div class="course-code">SM50013</div>
+                        <div class="course-title">Autonomous Navigation</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Principles and algorithms for autonomous vehicle navigation</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-car course-icon"></i>
+                        <div class="course-code">SM5133</div>
+                        <div class="course-title">Sensing and Planning for Autonomous Vehicles</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Sensor technologies and path planning for autonomous vehicles</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-drone course-icon"></i>
+                        <div class="course-code">ID1393</div>
+                        <div class="course-title">Introduction to Drones</div>
+                        <div class="course-type">Specialized Course</div>
+                        <div class="course-details">Fundamentals of drone technology and applications</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-car-side course-icon"></i>
+                        <div class="course-code">SM60053</div>
+                        <div class="course-title">Connected Vehicle Technology</div>
+                        <div class="course-type">Advanced Course</div>
+                        <div class="course-details">Vehicle-to-vehicle and vehicle-to-infrastructure communication</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IoT & Networks Courses -->
+            <div id="iot" class="course-section">
+                <div class="course-grid">
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-network-wired course-icon"></i>
+                        <div class="course-code">SM50033</div>
+                        <div class="course-title">Internet of Things (IoT)</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">IoT architecture, protocols, and applications</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-wifi course-icon"></i>
+                        <div class="course-code">EE1320</div>
+                        <div class="course-title">Internet of Things (IoT)</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Fundamental concepts and implementation of IoT systems</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-satellite course-icon"></i>
+                        <div class="course-code">EE6320</div>
+                        <div class="course-title">Wireless Sensor Networks</div>
+                        <div class="course-type">Advanced Course</div>
+                        <div class="course-details">Design and implementation of wireless sensor networks</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-broadcast-tower course-icon"></i>
+                        <div class="course-code">EE6020</div>
+                        <div class="course-title">Wireless Sensor Networks</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Principles and applications of wireless sensor networks</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Electronics Courses -->
+            <div id="core" class="course-section">
+                <div class="course-grid">
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-heartbeat course-icon"></i>
+                        <div class="course-code">EE6410</div>
+                        <div class="course-title">Biomedical IC Design</div>
+                        <div class="course-type">Specialized Course</div>
+                        <div class="course-details">Integrated circuit design for biomedical applications</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-calculator course-icon"></i>
+                        <div class="course-code">EE1110</div>
+                        <div class="course-title">Boolean Algebra</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Fundamental principles of Boolean algebra and logic design</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-wave-square course-icon"></i>
+                        <div class="course-code">EE2320</div>
+                        <div class="course-title">Digital Modulation Techniques</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Digital modulation schemes and signal processing</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-project-diagram course-icon"></i>
+                        <div class="course-code">EE7370</div>
+                        <div class="course-title">Markov Chains-MAC Modelling</div>
+                        <div class="course-type">Advanced Course</div>
+                        <div class="course-details">Markov chain modeling for medium access control</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-microchip course-icon"></i>
+                        <div class="course-code">EE506</div>
+                        <div class="course-title">Embedded Systems</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Design and development of embedded systems</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-cogs course-icon"></i>
+                        <div class="course-code">EE204</div>
+                        <div class="course-title">Digital System Design</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Digital logic design and system architecture</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Laboratory Courses -->
+            <div id="labs" class="course-section">
+                <div class="course-grid">
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-flask course-icon"></i>
+                        <div class="course-code">IoT Lab</div>
+                        <div class="course-title">Internet of Things Laboratory</div>
+                        <div class="course-type">Laboratory Course</div>
+                        <div class="course-details">Hands-on experience with IoT devices and platforms</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-cogs course-icon"></i>
+                        <div class="course-code">EE211</div>
+                        <div class="course-title">Digital System Design Lab</div>
+                        <div class="course-type">Laboratory Course</div>
+                        <div class="course-details">Practical implementation of digital logic circuits</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-microchip course-icon"></i>
+                        <div class="course-code">EE552</div>
+                        <div class="course-title">Embedded Systems Lab</div>
+                        <div class="course-type">Laboratory Course</div>
+                        <div class="course-details">Development and testing of embedded systems</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-desktop course-icon"></i>
+                        <div class="course-code">EE210</div>
+                        <div class="course-title">Computer Organisation and Microprocessor Lab</div>
+                        <div class="course-type">Laboratory Course</div>
+                        <div class="course-details">Microprocessor programming and computer architecture</div>
+                    </div>
+                </div>
+
+                <!-- Lab Equipment Section -->
+                <div class="lab-equipment scroll-animation">
+                    <h2 style="text-align: center; color: var(--primary-dark); margin-bottom: 2rem; font-family: 'Playfair Display', serif;">IoT Laboratory Equipment</h2>
+                    <div class="equipment-grid">
+                        <div class="equipment-card">
+                            <div class="equipment-title">Intel RealSense 3D Camera SR300</div>
+                            <ul class="equipment-list">
+                                <li>3D depth sensing technology</li>
+                                <li>Real-time depth mapping</li>
+                                <li>Gesture recognition capabilities</li>
+                                <li>High-resolution color imaging</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-card">
+                            <div class="equipment-title">Intel Galileo (GEN2) Board</div>
+                            <ul class="equipment-list">
+                                <li>Arduino-compatible development board</li>
+                                <li>Intel Quark SoC X1000 processor</li>
+                                <li>Linux-based operating system</li>
+                                <li>Multiple I/O interfaces</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-card">
+                            <div class="equipment-title">Intel Edison Overview</div>
+                            <ul class="equipment-list">
+                                <li>Dual-core Intel Atom processor</li>
+                                <li>Built-in WiFi and Bluetooth</li>
+                                <li>Linux-based IoT platform</li>
+                                <li>Compact form factor</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-card">
+                            <div class="equipment-title">IoT Companies and Devices</div>
+                            <ul class="equipment-list">
+                                <li>Various IoT development kits</li>
+                                <li>Sensor modules and actuators</li>
+                                <li>Cloud connectivity platforms</li>
+                                <li>Data analytics tools</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const courseSections = document.querySelectorAll('.course-section');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons and sections
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    courseSections.forEach(section => section.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+
+                    // Show corresponding section
+                    const category = btn.getAttribute('data-category');
+                    document.getElementById(category).classList.add('active');
+                });
+            });
+
+            // Scroll animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-animation').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses Handled | Dr. P. Rajalakshmi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d7a;
+            --primary-light: #e4e8ed;
+            --secondary: #6c757d;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --dark-gray: #495057;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            margin: 0.5rem auto 2rem auto;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--white);
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Course Categories */
+        .course-categories {
+            display: flex;
+            justify-content: center;
+            margin: 2.5rem 0 1.5rem 0;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--primary-dark);
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            padding: 10px 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Course Sections */
+        .course-section {
+            display: none;
+            animation: fadeInUp 0.7s;
+        }
+
+        .course-section.active {
+            display: block;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .course-card {
+            background: var(--white);
+            border-left: 5px solid var(--primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .course-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .course-code {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .course-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .course-type {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .course-details {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-duration {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .course-icon {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+
+        /* Lab Equipment Section */
+        .lab-equipment {
+            background: var(--white);
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .equipment-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 2px solid var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .equipment-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .equipment-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .equipment-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .equipment-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            color: var(--gray);
+        }
+
+        .equipment-list li:last-child {
+            border-bottom: none;
+        }
+
+        .equipment-list li::before {
+            content: '🔧';
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .course-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .equipment-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .category-btn {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+            
+            .course-card {
+                padding: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .course-categories {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(.4,2,.6,1);
+        }
+
+        .scroll-animation.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Dr. P. Rajalakshmi</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="sponsored_projects.html">Projects</a></li>
+                <li><a href="courses.html">Courses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h1 class="section-title scroll-animation">Courses Handled</h1>
+            <p class="section-subtitle scroll-animation">
+                Comprehensive teaching portfolio spanning autonomous systems, IoT, wireless networks, and emerging technologies
+            </p>
+
+            <!-- Stats Section -->
+            <div class="stats-section scroll-animation">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Total Courses</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Laboratory Courses</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Core Subjects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Specialized Areas</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Categories -->
+            <div class="course-categories">
+                <button class="category-btn active" data-category="autonomous">
+                    <i class="fas fa-drone"></i> Autonomous Systems
+                </button>
+                <button class="category-btn" data-category="iot">
+                    <i class="fas fa-network-wired"></i> IoT & Networks
+                </button>
+                <button class="category-btn" data-category="core">
+                    <i class="fas fa-microchip"></i> Core Electronics
+                </button>
+                <button class="category-btn" data-category="labs">
+                    <i class="fas fa-flask"></i> Laboratory Courses
+                </button>
+            </div>
+
+            <!-- Autonomous Systems Courses -->
+            <div id="autonomous" class="course-section active">
+                <div class="course-grid">
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-plane course-icon"></i>
+                        <div class="course-code">EE5163</div>
+                        <div class="course-title">Advanced Air Mobility</div>
+                        <div class="course-type">Specialized Course</div>
+                        <div class="course-details">Advanced concepts in aerial mobility and autonomous flight systems</div>
+                        <div class="course-duration">June 16-30</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-route course-icon"></i>
+                        <div class="course-code">SM50013</div>
+                        <div class="course-title">Autonomous Navigation</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Principles and algorithms for autonomous vehicle navigation</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-car course-icon"></i>
+                        <div class="course-code">SM5133</div>
+                        <div class="course-title">Sensing and Planning for Autonomous Vehicles</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Sensor technologies and path planning for autonomous vehicles</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-drone course-icon"></i>
+                        <div class="course-code">ID1393</div>
+                        <div class="course-title">Introduction to Drones</div>
+                        <div class="course-type">Specialized Course</div>
+                        <div class="course-details">Fundamentals of drone technology and applications</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-car-side course-icon"></i>
+                        <div class="course-code">SM60053</div>
+                        <div class="course-title">Connected Vehicle Technology</div>
+                        <div class="course-type">Advanced Course</div>
+                        <div class="course-details">Vehicle-to-vehicle and vehicle-to-infrastructure communication</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IoT & Networks Courses -->
+            <div id="iot" class="course-section">
+                <div class="course-grid">
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-network-wired course-icon"></i>
+                        <div class="course-code">SM50033</div>
+                        <div class="course-title">Internet of Things (IoT)</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">IoT architecture, protocols, and applications</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-wifi course-icon"></i>
+                        <div class="course-code">EE1320</div>
+                        <div class="course-title">Internet of Things (IoT)</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Fundamental concepts and implementation of IoT systems</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-satellite course-icon"></i>
+                        <div class="course-code">EE6320</div>
+                        <div class="course-title">Wireless Sensor Networks</div>
+                        <div class="course-type">Advanced Course</div>
+                        <div class="course-details">Design and implementation of wireless sensor networks</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-broadcast-tower course-icon"></i>
+                        <div class="course-code">EE6020</div>
+                        <div class="course-title">Wireless Sensor Networks</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Principles and applications of wireless sensor networks</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Electronics Courses -->
+            <div id="core" class="course-section">
+                <div class="course-grid">
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-heartbeat course-icon"></i>
+                        <div class="course-code">EE6410</div>
+                        <div class="course-title">Biomedical IC Design</div>
+                        <div class="course-type">Specialized Course</div>
+                        <div class="course-details">Integrated circuit design for biomedical applications</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-calculator course-icon"></i>
+                        <div class="course-code">EE1110</div>
+                        <div class="course-title">Boolean Algebra</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Fundamental principles of Boolean algebra and logic design</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-wave-square course-icon"></i>
+                        <div class="course-code">EE2320</div>
+                        <div class="course-title">Digital Modulation Techniques</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Digital modulation schemes and signal processing</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-project-diagram course-icon"></i>
+                        <div class="course-code">EE7370</div>
+                        <div class="course-title">Markov Chains-MAC Modelling</div>
+                        <div class="course-type">Advanced Course</div>
+                        <div class="course-details">Markov chain modeling for medium access control</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-microchip course-icon"></i>
+                        <div class="course-code">EE506</div>
+                        <div class="course-title">Embedded Systems</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Design and development of embedded systems</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-cogs course-icon"></i>
+                        <div class="course-code">EE204</div>
+                        <div class="course-title">Digital System Design</div>
+                        <div class="course-type">Core Course</div>
+                        <div class="course-details">Digital logic design and system architecture</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Laboratory Courses -->
+            <div id="labs" class="course-section">
+                <div class="course-grid">
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-flask course-icon"></i>
+                        <div class="course-code">IoT Lab</div>
+                        <div class="course-title">Internet of Things Laboratory</div>
+                        <div class="course-type">Laboratory Course</div>
+                        <div class="course-details">Hands-on experience with IoT devices and platforms</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-cogs course-icon"></i>
+                        <div class="course-code">EE211</div>
+                        <div class="course-title">Digital System Design Lab</div>
+                        <div class="course-type">Laboratory Course</div>
+                        <div class="course-details">Practical implementation of digital logic circuits</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-microchip course-icon"></i>
+                        <div class="course-code">EE552</div>
+                        <div class="course-title">Embedded Systems Lab</div>
+                        <div class="course-type">Laboratory Course</div>
+                        <div class="course-details">Development and testing of embedded systems</div>
+                    </div>
+
+                    <div class="course-card scroll-animation">
+                        <i class="fas fa-desktop course-icon"></i>
+                        <div class="course-code">EE210</div>
+                        <div class="course-title">Computer Organisation and Microprocessor Lab</div>
+                        <div class="course-type">Laboratory Course</div>
+                        <div class="course-details">Microprocessor programming and computer architecture</div>
+                    </div>
+                </div>
+
+                <!-- Lab Equipment Section -->
+                <div class="lab-equipment scroll-animation">
+                    <h2 style="text-align: center; color: var(--primary-dark); margin-bottom: 2rem; font-family: 'Playfair Display', serif;">IoT Laboratory Equipment</h2>
+                    <div class="equipment-grid">
+                        <div class="equipment-card">
+                            <div class="equipment-title">Intel RealSense 3D Camera SR300</div>
+                            <ul class="equipment-list">
+                                <li>3D depth sensing technology</li>
+                                <li>Real-time depth mapping</li>
+                                <li>Gesture recognition capabilities</li>
+                                <li>High-resolution color imaging</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-card">
+                            <div class="equipment-title">Intel Galileo (GEN2) Board</div>
+                            <ul class="equipment-list">
+                                <li>Arduino-compatible development board</li>
+                                <li>Intel Quark SoC X1000 processor</li>
+                                <li>Linux-based operating system</li>
+                                <li>Multiple I/O interfaces</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-card">
+                            <div class="equipment-title">Intel Edison Overview</div>
+                            <ul class="equipment-list">
+                                <li>Dual-core Intel Atom processor</li>
+                                <li>Built-in WiFi and Bluetooth</li>
+                                <li>Linux-based IoT platform</li>
+                                <li>Compact form factor</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-card">
+                            <div class="equipment-title">IoT Companies and Devices</div>
+                            <ul class="equipment-list">
+                                <li>Various IoT development kits</li>
+                                <li>Sensor modules and actuators</li>
+                                <li>Cloud connectivity platforms</li>
+                                <li>Data analytics tools</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const courseSections = document.querySelectorAll('.course-section');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons and sections
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    courseSections.forEach(section => section.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+
+                    // Show corresponding section
+                    const category = btn.getAttribute('data-category');
+                    document.getElementById(category).classList.add('active');
+                });
+            });
+
+            // Scroll animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-animation').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
